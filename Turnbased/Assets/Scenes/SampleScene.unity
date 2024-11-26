@@ -414,7 +414,6 @@ GameObject:
   - component: {fileID: 38860979}
   - component: {fileID: 38860982}
   - component: {fileID: 38860981}
-  - component: {fileID: 38860983}
   m_Layer: 5
   m_Name: DEF bar
   m_TagString: Untagged
@@ -479,32 +478,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38860978}
   m_CullTransparentMesh: 1
---- !u!114 &38860983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38860978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26cdfd8770a4fc441ab155e492873acd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSTRStat: 99
-  maxMAGStat: 99
-  maxDEFStat: 99
-  currentSTRStat: 4
-  currentMAGStat: 3
-  currentDEFStat: 7
-  STRText: {fileID: 1818230142}
-  MAGText: {fileID: 1857003285}
-  DEFText: {fileID: 1573547772}
-  STRBAR: {fileID: 2089616748}
-  MAGBAR: {fileID: 1799323564}
-  DEFBAR: {fileID: 38860981}
-  SkillPoints: 5
-  SkillPointsText: {fileID: 525928567}
 --- !u!1 &41846098
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,79 +652,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1039790221}
   m_SourcePrefab: {fileID: 100100000, guid: 64cb684f38ab4e547a77225cd823cf62, type: 3}
---- !u!1 &55310943
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 55310944}
-  - component: {fileID: 55310945}
-  - component: {fileID: 55310946}
-  m_Layer: 0
-  m_Name: ShrineMenuButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &55310944
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 55310943}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 941.98444, y: 555.53705, z: 887.7709}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &55310945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 55310943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd793ce0623e894589ec061139a013a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trigger: {fileID: 948152631}
-  menu: {fileID: 100981420}
---- !u!114 &55310946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 55310943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26cdfd8770a4fc441ab155e492873acd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSTRStat: 99
-  maxMAGStat: 99
-  maxDEFStat: 99
-  currentSTRStat: 5
-  currentMAGStat: 5
-  currentDEFStat: 5
-  STRText: {fileID: 1818230142}
-  MAGText: {fileID: 1857003285}
-  DEFText: {fileID: 1573547772}
-  STRBAR: {fileID: 2089616748}
-  MAGBAR: {fileID: 1799323564}
-  DEFBAR: {fileID: 38860981}
-  SkillPoints: 5
-  SkillPointsText: {fileID: 525928567}
 --- !u!1001 &59751937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -998,6 +898,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 100981421}
+  - component: {fileID: 100981422}
   m_Layer: 5
   m_Name: Shrinemenu
   m_TagString: Untagged
@@ -1025,6 +926,48 @@ RectTransform:
   m_AnchoredPosition: {x: 2, y: 4}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &100981422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100981420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd793ce0623e894589ec061139a013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 948152631}
+  menu: {fileID: 100981420}
+  health:
+    stat:
+      currentValue: 0
+      maxValue: 0
+    displayName: 
+    displayText: {fileID: 0}
+    displayBar: {fileID: 0}
+  strength:
+    stat:
+      currentValue: 4
+      maxValue: 99
+    displayName: STR
+    displayText: {fileID: 1818230142}
+    displayBar: {fileID: 2089616748}
+  magic:
+    stat:
+      currentValue: 2
+      maxValue: 99
+    displayName: MAG
+    displayText: {fileID: 1857003285}
+    displayBar: {fileID: 1799323564}
+  defence:
+    stat:
+      currentValue: 7
+      maxValue: 99
+    displayName: DEF
+    displayText: {fileID: 1573547772}
+    displayBar: {fileID: 38860981}
 --- !u!1001 &122462964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3550,7 +3493,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 55310946}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Stats, Assembly-CSharp
         m_MethodName: AddToMAGStats
         m_Mode: 1
@@ -4395,7 +4338,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 55310946}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Stats, Assembly-CSharp
         m_MethodName: AddToDEFStats
         m_Mode: 1
@@ -9891,7 +9834,6 @@ GameObject:
   m_Component:
   - component: {fileID: 948152629}
   - component: {fileID: 948152631}
-  - component: {fileID: 948152630}
   - component: {fileID: 948152632}
   m_Layer: 0
   m_Name: GameObject
@@ -9915,20 +9857,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1249154235}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &948152630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948152628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd793ce0623e894589ec061139a013a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trigger: {fileID: 948152631}
-  menu: {fileID: 100981420}
 --- !u!65 &948152631
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10128,7 +10056,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 55310945}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShrineMenu, Assembly-CSharp
         m_MethodName: ExitMenu
         m_Mode: 1
@@ -11409,7 +11337,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 55310945}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShrineMenu, Assembly-CSharp
         m_MethodName: ExitMenu
         m_Mode: 1
@@ -17145,6 +17073,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1567484577}
+  - component: {fileID: 1567484578}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -17168,6 +17097,30 @@ Transform:
   - {fileID: 384609265}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1567484578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567484576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6cbb95d53db0f44b12eafc060ae86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health:
+    currentValue: 0
+    maxValue: 0
+  strength:
+    currentValue: 0
+    maxValue: 0
+  magic:
+    currentValue: 0
+    maxValue: 0
+  defence:
+    currentValue: 0
+    maxValue: 0
 --- !u!1001 &1572321274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24593,7 +24546,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 55310946}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Stats, Assembly-CSharp
         m_MethodName: AddToSTRStats
         m_Mode: 1
@@ -24821,7 +24774,6 @@ GameObject:
   - component: {fileID: 1799323562}
   - component: {fileID: 1799323565}
   - component: {fileID: 1799323564}
-  - component: {fileID: 1799323566}
   m_Layer: 5
   m_Name: MAG Bar
   m_TagString: Untagged
@@ -24886,32 +24838,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799323561}
   m_CullTransparentMesh: 1
---- !u!114 &1799323566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799323561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26cdfd8770a4fc441ab155e492873acd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSTRStat: 99
-  maxMAGStat: 99
-  maxDEFStat: 99
-  currentSTRStat: 4
-  currentMAGStat: 3
-  currentDEFStat: 7
-  STRText: {fileID: 1818230142}
-  MAGText: {fileID: 1857003285}
-  DEFText: {fileID: 1573547772}
-  STRBAR: {fileID: 2089616748}
-  MAGBAR: {fileID: 1799323564}
-  DEFBAR: {fileID: 38860981}
-  SkillPoints: 5
-  SkillPointsText: {fileID: 525928567}
 --- !u!1 &1805935290 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 125426, guid: 64cb684f38ab4e547a77225cd823cf62, type: 3}
@@ -27293,7 +27219,6 @@ GameObject:
   - component: {fileID: 2089616746}
   - component: {fileID: 2089616749}
   - component: {fileID: 2089616748}
-  - component: {fileID: 2089616750}
   m_Layer: 5
   m_Name: STR bar
   m_TagString: Untagged
@@ -27358,32 +27283,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089616745}
   m_CullTransparentMesh: 1
---- !u!114 &2089616750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2089616745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26cdfd8770a4fc441ab155e492873acd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSTRStat: 99
-  maxMAGStat: 99
-  maxDEFStat: 99
-  currentSTRStat: 4
-  currentMAGStat: 3
-  currentDEFStat: 7
-  STRText: {fileID: 1818230142}
-  MAGText: {fileID: 1857003285}
-  DEFText: {fileID: 1573547772}
-  STRBAR: {fileID: 2089616748}
-  MAGBAR: {fileID: 1799323564}
-  DEFBAR: {fileID: 38860981}
-  SkillPoints: 5
-  SkillPointsText: {fileID: 525928567}
 --- !u!1001 &2091359999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27895,4 +27794,3 @@ SceneRoots:
   - {fileID: 840015840}
   - {fileID: 1341095910}
   - {fileID: 556672574}
-  - {fileID: 55310944}
