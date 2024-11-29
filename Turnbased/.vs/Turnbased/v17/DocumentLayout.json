@@ -1,18 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\30095350\\Documents\\Game\\TurnBasedProject\\Turnbased\\",
+  "WorkspaceRootPath": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|c:\\users\\30095350\\documents\\game\\turnbasedproject\\turnbased\\assets\\scripts\\scripts\\playerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\playerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|c:\\users\\30095350\\documents\\github\\turnbasedproject\\turnbased\\assets\\scripts\\scripts\\door.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\door.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|c:\\users\\30095350\\documents\\game\\turnbasedproject\\turnbased\\assets\\scripts\\scripts\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\assets\\scripts\\scripts\\shrinemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\shrinemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\30095350\\Documents\\Game\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\assets\\scripts\\scripts\\movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\assets\\scripts\\scripts\\keypickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\keypickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +26,57 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Stats.cs",
-              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\Game\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\Stats.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\Stats.cs",
-              "ToolTip": "C:\\Users\\30095350\\Documents\\Game\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\Stats.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Scripts\\Stats.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Door.cs",
+              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\Door.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\Door.cs",
+              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\Door.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts\\Door.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T07:05:25.575Z",
+              "WhenOpened": "2024-11-29T07:25:54.633Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PlayerHandler.cs",
-              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\Game\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\PlayerHandler.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\PlayerHandler.cs",
-              "ToolTip": "C:\\Users\\30095350\\Documents\\Game\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\PlayerHandler.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Scripts\\PlayerHandler.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAABBAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ShrineMenu.cs",
+              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\ShrineMenu.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\ShrineMenu.cs",
+              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\ShrineMenu.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts\\ShrineMenu.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwDgAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T06:44:45.522Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T07:15:36.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "KeyPickup.cs",
+              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\KeyPickup.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\KeyPickup.cs",
+              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\KeyPickup.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts\\KeyPickup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T07:11:29.25Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Movement.cs",
-              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\Game\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Movement.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Movement.cs",
-              "ToolTip": "C:\\Users\\30095350\\Documents\\Game\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Movement.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Movement.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAAAHMAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\Movement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\Movement.cs",
+              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\Movement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts\\Movement.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAADQAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T00:30:39.427Z"
+              "WhenOpened": "2024-11-29T06:47:11.316Z"
             }
           ]
         }
