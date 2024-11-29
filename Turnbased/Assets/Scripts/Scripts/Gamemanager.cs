@@ -1,9 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Gamemanager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+    public GameStates state = GameStates.Play;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +31,9 @@ public class Gamemanager : MonoBehaviour
     {
         
     }
+}
+
+public enum GameStates
+{
+    Play, Pause, Menu, Win, Lose
 }
