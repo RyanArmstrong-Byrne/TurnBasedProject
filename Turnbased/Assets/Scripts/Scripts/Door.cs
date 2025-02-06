@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -8,6 +7,11 @@ public class Door : MonoBehaviour
     public Animator animator;
     public bool IsOpen;
     public GameObject key;
+
+    private void Awake()
+    {
+        key.SetActive(false);
+    }
 
     private void Start()
     {

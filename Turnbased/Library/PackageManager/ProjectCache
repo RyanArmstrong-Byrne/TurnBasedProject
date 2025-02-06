@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638684611637456798
-    m_Hash: 1796327263
+      ticks: 638744087177700658
+    m_Hash: 3406990577
   m_LockFileStatus:
     m_FilePath: C:/Users/30095350/Documents/GitHub/TurnBasedProject/Turnbased/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638684611637516654
-    m_Hash: 2722797238
+      ticks: 638744087177760723
+    m_Hash: 4192292226
 m_EmbeddedPackageManifests:
   m_ManifestsStatus:
     C:/Users/30095350/Documents/GitHub/TurnBasedProject/Turnbased/Packages/com.merry-yellow.code-assist/package.json:
@@ -23,7 +23,7 @@ m_EmbeddedPackageManifests:
       m_ContentTrackingEnabled: 1
       m_ModificationDate:
         serializedVersion: 2
-        ticks: 638684571438530662
+        ticks: 638744020716278686
       m_Hash: 4251217072
 m_LocalPackages:
   m_LocalFileStatus: []
@@ -107,6 +107,7 @@ m_ResolvedPackages:
     - 5.0.1
     - 5.0.2
     - 5.1.0
+    - 5.1.1
     compatible:
     - 4.0.1
     - 5.0.0-pre.1
@@ -117,6 +118,7 @@ m_ResolvedPackages:
     - 5.0.1
     - 5.0.2
     - 5.1.0
+    - 5.1.1
     recommended: 4.0.1
     deprecated: []
   dependencies:
@@ -266,6 +268,7 @@ m_ResolvedPackages:
     - 2.4.4
     - 2.5.1
     - 2.5.2
+    - 2.6.0
     compatible:
     - 2.2.0
     - 2.3.1
@@ -273,6 +276,7 @@ m_ResolvedPackages:
     - 2.4.4
     - 2.5.1
     - 2.5.2
+    - 2.6.0
     recommended: 2.2.0
     deprecated: []
   dependencies: []
@@ -543,6 +547,7 @@ m_ResolvedPackages:
     - 3.2.0-pre.8
     - 3.2.0-pre.9
     - 3.2.0-pre.10
+    - 3.2.0-pre.11
     - 4.0.0-pre.1
     - 4.0.0-pre.2
     compatible:
@@ -560,6 +565,7 @@ m_ResolvedPackages:
     - 3.2.0-pre.8
     - 3.2.0-pre.9
     - 3.2.0-pre.10
+    - 3.2.0-pre.11
     - 4.0.0-pre.1
     - 4.0.0-pre.2
     recommended: 3.0.9
@@ -713,6 +719,7 @@ m_ResolvedPackages:
     - 1.8.5
     - 1.8.6
     - 1.8.7
+    - 1.8.8
     compatible:
     - 1.7.6
     - 1.8.0
@@ -723,6 +730,7 @@ m_ResolvedPackages:
     - 1.8.5
     - 1.8.6
     - 1.8.7
+    - 1.8.8
     recommended: 1.7.6
     deprecated: []
   dependencies:
@@ -847,12 +855,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
-- packageId: com.unity.visualscripting@1.9.1
+- packageId: com.unity.visualscripting@1.9.5
   testable: 0
   isDirectDependency: 1
-  version: 1.9.1
+  version: 1.9.5
   source: 1
-  resolvedPath: C:\Users\30095350\Documents\GitHub\TurnBasedProject\Turnbased\Library\PackageCache\com.unity.visualscripting@1.9.1
+  resolvedPath: C:\Users\30095350\Documents\GitHub\TurnBasedProject\Turnbased\Library\PackageCache\com.unity.visualscripting@1.9.5
   assetPath: Packages/com.unity.visualscripting
   name: com.unity.visualscripting
   displayName: Visual Scripting
@@ -933,13 +941,13 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638284821510000000
+  datePublishedTicks: 638659692270900000
   documentationUrl: 
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.visualscripting.git
-    revision: 5e78e9c354ed1567dbcea08e2bd9992e4a473cfb
+    revision: 3621ef0207747a605f195118ba99d1a8bdb19433
     path: 
   unityLifecycle:
     version: 1.9.1
@@ -3286,9 +3294,11 @@ m_ResolvedPackages:
     - 1.1.0
     - 1.1.1
     - 1.2.2
+    - 1.2.3
     compatible:
     - 1.2.2
-    recommended: 1.2.2
+    - 1.2.3
+    recommended: 1.2.3
     deprecated: []
   dependencies: []
   resolvedDependencies: []
@@ -3388,6 +3398,7 @@ m_ResolvedPackages:
     - 1.4.3
     - 1.4.4
     - 1.4.5
+    - 1.4.6
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -3409,6 +3420,7 @@ m_ResolvedPackages:
     - 1.4.3
     - 1.4.4
     - 1.4.5
+    - 1.4.6
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -3580,13 +3592,18 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: 
+  type: asset
   description: The Unity Profiling Core package provides an API for code instrumentation
     markup, and for profiling statistic collection.
   status: 0
   errors: []
   versions:
     all:
+    - 0.1.0-preview.1
+    - 0.2.0-preview.1
+    - 0.2.1-preview.1
+    - 1.0.0-pre.1
+    - 1.0.0
     - 1.0.2
     compatible:
     - 1.0.2
@@ -3608,7 +3625,7 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 0
+  datePublishedTicks: 637828752310000000
   documentationUrl: 
   hasRepository: 1
   repository:
