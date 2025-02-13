@@ -61,14 +61,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Scripts\InventoryStats.cs" />
-    <Compile Include="Assets\Scripts\Scripts\KeyPickup.cs" />
     <Compile Include="Assets\Scripts\Scripts\ShrineMenu.cs" />
     <Compile Include="Assets\Scripts\Scripts\PlayerHandler.cs" />
     <Compile Include="Assets\Scripts\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\Scripts\Gamemanager.cs" />
+    <Compile Include="Assets\Scripts\Scripts\health.cs" />
     <Compile Include="Assets\Scripts\Scripts\Stats.cs" />
     <Compile Include="Assets\Scripts\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\Scripts\Door.cs" />
+    <Compile Include="Assets\Scripts\Scripts\pickup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Key\readME keys.txt" />

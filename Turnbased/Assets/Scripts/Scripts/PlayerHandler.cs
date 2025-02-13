@@ -15,6 +15,7 @@ public class PlayerHandler : MonoBehaviour
     public float strengthREF;
     public float magicREF;
     public float defenceREF;
+    public float PotionsREF;
 
     private void Awake()
     {
@@ -34,6 +35,7 @@ public class PlayerHandler : MonoBehaviour
         strengthREF = statDisplay.strength;
         magicREF = statDisplay.magic;
         defenceREF = statDisplay.defence;
+        PotionsREF = statDisplay.potions;
     }
 }
 
@@ -45,6 +47,7 @@ public class StatDisplay
     public float health = 100;
     public float strength = 3;
     public float magic = 2;
+    public float potions = 0;
     public int defence = 5;
     public string displayName;
 }

@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B5872E67-7DB8-0A8F-DBCD-56E2FAC40709}|Assembly-CSharp.Player.csproj|c:\\users\\30095350\\documents\\github\\turnbasedproject\\turnbased\\assets\\scripts\\scripts\\door.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5872E67-7DB8-0A8F-DBCD-56E2FAC40709}|Assembly-CSharp.Player.csproj|solutionrelative:assets\\scripts\\scripts\\door.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|c:\\users\\30095350\\documents\\github\\turnbasedproject\\turnbased\\assets\\scripts\\scripts\\door.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\door.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|c:\\users\\30095350\\documents\\github\\turnbasedproject\\turnbased\\assets\\scripts\\scripts\\inventorystats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\inventorystats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\assets\\scripts\\scripts\\pickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\pickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|c:\\users\\30095350\\documents\\github\\turnbasedproject\\turnbased\\assets\\scripts\\scripts\\playerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\playerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|c:\\users\\30095350\\documents\\github\\turnbasedproject\\turnbased\\assets\\scripts\\scripts\\shrinemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F05F1E5A-611A-3396-7D05-89DD9465580C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\shrinemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,9 +40,61 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\Door.cs",
               "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\Door.cs",
               "RelativeToolTip": "Assets\\Scripts\\Scripts\\Door.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T03:25:10.199Z",
+              "WhenOpened": "2025-02-13T05:38:09.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ShrineMenu.cs",
+              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\ShrineMenu.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\ShrineMenu.cs",
+              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\ShrineMenu.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts\\ShrineMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T05:36:43.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerHandler.cs",
+              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\PlayerHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\PlayerHandler.cs",
+              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\PlayerHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts\\PlayerHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T05:24:49.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InventoryStats.cs",
+              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\InventoryStats.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\InventoryStats.cs",
+              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\InventoryStats.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts\\InventoryStats.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBAAAACWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T05:19:35.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "pickup.cs",
+              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\pickup.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\pickup.cs",
+              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Turnbased\\Assets\\Scripts\\Scripts\\pickup.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts\\pickup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T05:14:30.695Z",
               "EditorCaption": ""
             }
           ]

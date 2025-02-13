@@ -7,6 +7,7 @@ public class Door : MonoBehaviour
     public Animator animator;
     public bool IsOpen;
     public GameObject key;
+    public GameObject key_sprite;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class Door : MonoBehaviour
         {
             IsOpen = !IsOpen;
             animator.SetBool("IsOpen", IsOpen);
+            key_sprite.SetActive(false);
         }
     }
 }
