@@ -35,5 +35,5 @@ public class GameManager : MonoBehaviour
 
 public enum GameStates
 {
-    PlayerTurn,EnemyTurn, Pause, Menu, Win, Lose
+    PlayerTurn,EnemyTurn, Pause, Menu, Win, Lose, Battle
 }
