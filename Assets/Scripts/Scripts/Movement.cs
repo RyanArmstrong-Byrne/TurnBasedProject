@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
     public bool _hitEnemyRange;
     public bool _hitEnemyMelee;
     public  GameObject battleButton;
+    bool _changedTurn;
 
     #endregion
     private void Start()
@@ -94,6 +95,12 @@ public class Movement : MonoBehaviour
     {
         if (GameManager.instance.state == GameStates.PlayerTurn)
         {
+            if (!_changedTurn)
+            {
+                _changedTurn = true;
+                UpdateActionPoints(0);
+            }
+
             Ray ranged = new Ray(transform.position, transform.forward);
             RaycastHit hitInfo;
             if (Physics.Raycast(ranged, out hitInfo, 8))
@@ -104,6 +111,7 @@ public class Movement : MonoBehaviour
                     _hitEnemyRange = true;
                     _hitEnemyMelee = false;
                     _hitWall = false;
+                    battleButton.SetActive(true);
                 }
             }
             else
@@ -126,6 +134,7 @@ public class Movement : MonoBehaviour
                     _hitEnemyMelee = true;
                     _hitEnemyRange = false;
                     _hitWall = false;
+                    battleButton.SetActive(true);
                 }
             }
             else
@@ -135,24 +144,25 @@ public class Movement : MonoBehaviour
             }
 
             ToBattleState();
-        }
 
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            PlayerMovementForward();
-        }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                PlayerMovementForward();
+            }
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            PlayerRotateLeft();
-        }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                PlayerRotateLeft();
+            }
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            PlayerRotateRight();
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                PlayerRotateRight();
+            }
         }
-
     }
+
+
     void UpdateActionPoints(int value)
     {
         actionsInTurn -= value;
@@ -161,6 +171,8 @@ public class Movement : MonoBehaviour
         {
             GameManager.instance.state = GameStates.EnemyTurn;
             turnDisplay.text = "Enemy Turn";
+            actionsInTurn = 3;
+            _changedTurn = false;
         }
 
     }
@@ -177,7 +189,8 @@ public class Movement : MonoBehaviour
         }
         else { }
         {
-            Debug.Log("something broken");
+            Debug.Log("battlebutton not active");
+            battleButton.SetActive(false);
         }
 
     }
