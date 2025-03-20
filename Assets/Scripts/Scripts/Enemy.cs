@@ -11,6 +11,15 @@ public class Enemy : MonoBehaviour
     public Text actionPointDisplay;
     bool _isMoving;
     bool _changedTurn;
+    [SerializeField] private GameObject enemy;
+    [SerializeField] float Unit = 4;
+    [SerializeField] Vector3 targetPosition;
+
+
+    private void Awake()
+    {
+        enemy = this.gameObject;
+    }
 
     // Similar Movement and detection 
 
@@ -37,6 +46,18 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void EnemyForward()
+    {
+        if (EnemnyActionPoints >0)
+        {
+            targetPosition += enemy.transform.forward * Unit;
+            enemy.transform.position = targetPosition;
+            UpdateActionPoints(1);
+            Debug.Log("enemy moved forward");
+        }
+    }
+
+
 
     IEnumerator EnemyTurn()
     {
@@ -44,7 +65,8 @@ public class Enemy : MonoBehaviour
         if (!_isMoving)
         {
             _isMoving = true;
-            UpdateActionPoints(1);
+            EnemyForward();
+            //UpdateActionPoints(1);
         }
         yield return new WaitForSeconds(2f);
         _isMoving = false;
