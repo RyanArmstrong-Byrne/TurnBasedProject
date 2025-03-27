@@ -1,33 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Door : MonoBehaviour
 {
-    public Animator animator;
-    public bool IsOpen;
-    public GameObject key;
-    public GameObject key_sprite;
+    public GameObject keyINV_sprite;
+    public GameObject keyINV;
+    public GameObject DoorOBJ;
+    public bool isOpen;
+    public bool nearDoor;
+    [SerializeField] Text _interactionText;
 
-    private void Awake()
-    {
-        key.SetActive(false);
-    }
 
     private void Start()
     {
-        animator = GetComponentInParent<Animator>();
-        IsOpen = false;
-        animator.SetBool("IsOpen", IsOpen);
+        isOpen = false;
+        DoorOBJ = this.transform.gameObject;
+        DoorOBJ.SetActive(true);
+        keyINV.SetActive(false);
+
+        _interactionText = GameObject.Find("InteractionText").GetComponent<Text>();
+        _interactionText.enabled = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+
+    void Update()
     {
-        if (key.activeInHierarchy == true)
+        if (GameManager.instance.state == GameStates.PlayerTurn)
         {
-            IsOpen = !IsOpen;
-            animator.SetBool("IsOpen", IsOpen);
-            key_sprite.SetActive(false);
+            if (nearDoor)
+            {
+                if (!_interactionText.enabled)
+                {
+                    _interactionText.enabled = true;
+                }
+
+                if (Input.GetButtonUp("Interaction"))
+                {
+                    Debug.Log("Interaction");
+                    if (keyINV.activeInHierarchy)
+                    {
+                        nearDoor = false; 
+                        keyINV_sprite.SetActive(false);
+                        _interactionText.enabled = false;
+                        isOpen = !isOpen;
+                        DoorOBJ.SetActive(false);
+                    }
+                    else
+                    {
+                        Debug.Log("Door Locked");
+                        StartCoroutine(InteractionTextChange("Door Locked - Need key."));
+                    }
+                }
+            }
         }
+    }
+
+    public void HideText()
+    {
+        _interactionText.enabled = false;
+    }
+
+    IEnumerator InteractionTextChange(string textDisplay)
+    {
+        _interactionText.text = textDisplay;
+        yield return new WaitForSeconds(3f);
+        _interactionText.text = "Press E to interact";
     }
 }

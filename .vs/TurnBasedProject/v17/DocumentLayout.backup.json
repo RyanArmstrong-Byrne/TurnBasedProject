@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|c:\\users\\30095350\\documents\\github\\turnbasedproject\\assets\\scripts\\scripts\\shrinemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\assets\\scripts\\scripts\\shrinemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\shrinemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -42,8 +42,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Scripts\\Battle.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T05:39:58.507Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T05:39:58.507Z"
             },
             {
               "$type": "Document",
@@ -55,8 +54,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Scripts\\ShrineMenu.cs",
               "ViewState": "AgIAAHcAAAAAAAAAAAA7wIgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T02:15:36.68Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T02:15:36.68Z"
             },
             {
               "$type": "Document",
@@ -68,8 +66,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Scripts\\Gamemanager.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAQwCUAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T01:36:43.433Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-27T01:36:43.433Z"
             },
             {
               "$type": "Document",
@@ -79,7 +76,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\Movement.cs",
               "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\Movement.cs",
               "RelativeToolTip": "Assets\\Scripts\\Scripts\\Movement.cs",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAmwIgAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwCsAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-27T01:35:36.018Z",
               "EditorCaption": ""
@@ -92,7 +89,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\Enemy.cs",
               "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\Enemy.cs",
               "RelativeToolTip": "Assets\\Scripts\\Scripts\\Enemy.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAADwvzkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAkwFUAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-27T02:54:12.93Z",
               "EditorCaption": ""

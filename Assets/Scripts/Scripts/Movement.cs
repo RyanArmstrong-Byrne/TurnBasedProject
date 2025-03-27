@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
     public bool _hitEnemyMelee;
     public  GameObject battleButton;
     bool _changedTurn;
+    Door door;
 
     #endregion
     private void Start()
@@ -105,13 +106,16 @@ public class Movement : MonoBehaviour
             RaycastHit hitInfo;
             if (Physics.Raycast(ranged, out hitInfo, 8))
             {
-                if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                if (!_hitEnemyMelee)
                 {
-                    Debug.Log("I have hit the enemy...");
-                    _hitEnemyRange = true;
-                    _hitEnemyMelee = false;
-                    _hitWall = false;
-                    battleButton.SetActive(true);
+                    if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                    {
+                        Debug.Log("Range - I have hit the enemy...");
+                        _hitEnemyRange = true;
+                        _hitEnemyMelee = false;
+                        _hitWall = false;
+                        battleButton.SetActive(true);
+                    }
                 }
             }
             else
@@ -130,17 +134,28 @@ public class Movement : MonoBehaviour
                 }
                 else if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
                 {
-                    Debug.Log("I have hit the enemy...");
+                    Debug.Log("Melee - I have hit the enemy...");
                     _hitEnemyMelee = true;
                     _hitEnemyRange = false;
                     _hitWall = false;
                     battleButton.SetActive(true);
+                }
+                else if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Door"))
+                {
+                    Debug.Log("Door - Show pop up text here...");
+                    door = hitInfo.transform.gameObject.GetComponent<Door>();
+                    door.nearDoor = true;
                 }
             }
             else
             {
                 _hitWall = false;
                 _hitEnemyMelee = false;
+                if (door !=null)
+                {
+                    door.nearDoor = false;
+                    door.HideText();
+                }
             }
 
             ToBattleState();

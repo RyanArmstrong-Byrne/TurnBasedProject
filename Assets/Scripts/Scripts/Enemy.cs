@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         enemy = this.gameObject;
+        this.gameObject.transform.position = targetPosition;
     }
 
     // Similar Movement and detection 

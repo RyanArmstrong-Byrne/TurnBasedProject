@@ -9,7 +9,7 @@ public class ShrineMenu : MonoBehaviour
     public GameObject menu;
     //public StatDisplay health, strength, magic, defence;
     public float maxSTRStat = 99, maxMAGStat = 99, maxDEFStat = 99, currentSTRStat, currentMAGStat, currentDEFStat;
-
+    [SerializeField] int _upgradeValue = 5;
     public Text STRText;
     public Text MAGText;
     public Text DEFText;
@@ -99,7 +99,7 @@ public class ShrineMenu : MonoBehaviour
     {
         if(SkillPoints > 0)
         {
-            currentSTRStat++;
+            currentSTRStat += _upgradeValue;
             skillpointToText(1);
             UpdateSTRUI();
             Debug.Log("STR+!");
@@ -110,7 +110,7 @@ public class ShrineMenu : MonoBehaviour
     {
         if(SkillPoints > 0)
         {
-            currentMAGStat++;
+            currentMAGStat += _upgradeValue;
             skillpointToText(1);
             UpdateMAGUI();
             Debug.Log("MAG+!");
@@ -121,7 +121,7 @@ public class ShrineMenu : MonoBehaviour
     {
         if(SkillPoints > 0)
         {
-            currentDEFStat++;
+            currentDEFStat+= _upgradeValue;
             skillpointToText(1);
             UpdateDEFUI();
             Debug.Log("DEF+!");
