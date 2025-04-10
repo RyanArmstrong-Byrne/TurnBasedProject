@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,10 +7,10 @@ using UnityEngine.UI;
 public class Movement : MonoBehaviour
 {
     #region variables
-    [SerializeField] UnityEngine.Vector3 targetPosition;
+    [SerializeField] Vector3 targetPosition;
     [SerializeField] float unit = 4;
     [SerializeField] GameObject player;
-    [SerializeField] UnityEngine.Vector3 targetRotation;
+    [SerializeField] Vector3 targetRotation;
     public int actionsInTurn = 3;
     public Text actionPointDisplay;
     public Text turnDisplay;
@@ -32,7 +31,7 @@ public class Movement : MonoBehaviour
     }
     private void LateUpdate()
     {
-        transform.rotation = UnityEngine.Quaternion.Euler(targetRotation);
+        transform.rotation = Quaternion.Euler(targetRotation);
     }
 
     #region Move Forward Direction
@@ -62,7 +61,7 @@ public class Movement : MonoBehaviour
         if (actionsInTurn > 0)
         {
             //player.transform.rotation
-            targetRotation -= UnityEngine.Vector3.up * 90;
+            targetRotation -= Vector3.up * 90;
             player.transform.rotation = transform.rotation;
             Debug.Log("Moved Left");
             UpdateActionPoints(1);
@@ -204,7 +203,7 @@ public class Movement : MonoBehaviour
         }
         else { }
         {
-            Debug.Log("battlebutton not active");
+            //Debug.Log("battlebutton not active");
             battleButton.SetActive(false);
         }
 
