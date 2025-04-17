@@ -24,15 +24,26 @@ public class Movement : MonoBehaviour
     #endregion
     private void Start()
     {
-        UpdateActionPoints(0);
-        turnDisplay.text = "Player Turn";
-        battleButton.SetActive(false);
+        //UpdateActionPoints(0);
+        //turnDisplay.text = "Player Turn";
+        //battleButton.SetActive(false);
+
+        StartPlayerTurn();
 
     }
     private void LateUpdate()
     {
         transform.rotation = Quaternion.Euler(targetRotation);
     }
+
+    public void StartPlayerTurn()
+    {
+        actionsInTurn = 3;
+        UpdateActionPoints(0);
+        GameManager.instance.state = GameStates.PlayerTurn;
+        turnDisplay.text = "Player Turn";
+    }
+
 
     #region Move Forward Direction
     // press W key move a space forward

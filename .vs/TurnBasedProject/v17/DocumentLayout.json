@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|c:\\users\\30095350\\documents\\github\\turnbasedproject\\assets\\scripts\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\assets\\scripts\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\assets\\scripts\\scripts\\movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|c:\\users\\30095350\\documents\\github\\turnbasedproject\\assets\\scripts\\scripts\\movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 189,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -28,17 +28,11 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\Movement.cs",
               "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\Movement.cs",
               "RelativeToolTip": "Assets\\Scripts\\Scripts\\Movement.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAQwCEAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAIAwwCsAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-27T01:35:36.018Z",
               "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 189,
-          "SelectedChildIndex": 0,
-          "Children": [
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -47,7 +41,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\Enemy.cs",
               "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\Enemy.cs",
               "RelativeToolTip": "Assets\\Scripts\\Scripts\\Enemy.cs",
-              "ViewState": "AgIAAOAAAAAAAAAAAAAYwNcAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-27T02:54:12.93Z",
               "EditorCaption": ""
