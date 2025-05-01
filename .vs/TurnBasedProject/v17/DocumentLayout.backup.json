@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\assets\\scripts\\scripts\\movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|c:\\users\\30095350\\documents\\github\\turnbasedproject\\assets\\scripts\\scripts\\enemysystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\enemysystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|c:\\users\\30095350\\documents\\github\\turnbasedproject\\assets\\scripts\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|c:\\users\\30095350\\documents\\github\\turnbasedproject\\assets\\scripts\\scripts\\enemymovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\enemymovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\assets\\scripts\\scripts\\enemydetect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\enemydetect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\assets\\scripts\\scripts\\playersystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\playersystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +31,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Movement.cs",
-              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\Movement.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\Movement.cs",
-              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\Movement.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Scripts\\Movement.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAIAwwCsAAAApAAAAAAAAAA==",
+              "Title": "EnemySystem.cs",
+              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\EnemySystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\EnemySystem.cs",
+              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\EnemySystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts\\EnemySystem.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAWwDcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T01:35:36.018Z",
+              "WhenOpened": "2025-05-01T02:15:48.112Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerSystem.cs",
+              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\PlayerSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\PlayerSystem.cs",
+              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\PlayerSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts\\PlayerSystem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T02:12:29.602Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Enemy.cs",
-              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\Enemy.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\Enemy.cs",
-              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\Enemy.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Scripts\\Enemy.cs",
-              "ViewState": "AgIAAPEAAAAAAAAAAAAnwAABAAAlAAAAAAAAAA==",
+              "Title": "EnemyMovement.cs",
+              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\EnemyMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\EnemyMovement.cs",
+              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\EnemyMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts\\EnemyMovement.cs",
+              "ViewState": "AgIAAMAAAAAAAAAAAAAAANcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T02:54:12.93Z",
+              "WhenOpened": "2025-05-01T01:45:03.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EnemyDetect.cs",
+              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\EnemyDetect.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\EnemyDetect.cs",
+              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\EnemyDetect.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts\\EnemyDetect.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T01:44:08.068Z",
               "EditorCaption": ""
             }
           ]
