@@ -22,6 +22,20 @@ public class PlayerSystem : MonoBehaviour
     Door door;
     public EnemySystem enemySystem;
 
+    [Header("Player Detection Variables")]
+
+    public float detectRange = 8f;
+    public float detectMelee = 4f;
+    public Vector3 raycastForward = Vector3.forward;
+    public Vector3 raycastLeft = Vector3.left;
+    public Vector3 raycastRight = Vector3.right;
+
+    [Header("Objects that the enemy sees (hits)")]
+    public GameObject front;
+    public GameObject left;
+    public GameObject right;
+    public float enemyDist;
+
     #endregion
     private void Start()
     {
@@ -113,79 +127,249 @@ public class PlayerSystem : MonoBehaviour
             //    UpdateActionPoints(0);
             //}
 
-            Ray ranged = new Ray(transform.position, transform.forward);
-            RaycastHit hitInfo;
-            if (Physics.Raycast(ranged, out hitInfo, 8))
+            //Ray ranged = new Ray(transform.position, transform.forward);
+            //RaycastHit hitInfo;
+            //if (Physics.Raycast(ranged, out hitInfo, 8))
+            //{
+            //    if (!_hitEnemyMelee)
+            //    {
+            //        if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            //        {
+            //            Debug.Log("Range - I have hit the enemy...");
+            //            _hitEnemyRange = true;
+            //            _hitEnemyMelee = false;
+            //            _hitWall = false;
+            //            battleButton.SetActive(true);
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    _hitEnemyRange = false;
+            //}
+
+            //if (Physics.Raycast(ranged, out hitInfo, 4))
+            //{
+            //    if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("walls"))
+            //    {
+            //        Debug.Log("I have hit a wall...");
+            //        _hitWall = true;
+            //        _hitEnemyRange = false;
+            //        _hitEnemyMelee = false;
+            //    }
+            //    else if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            //    {
+            //        Debug.Log("Melee - I have hit the enemy...");
+            //        _hitEnemyMelee = true;
+            //        _hitEnemyRange = false;
+            //        _hitWall = false;
+            //        battleButton.SetActive(true);
+            //    }
+            //    else if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Door"))
+            //    {
+            //        Debug.Log("Door - Show pop up text here...");
+            //        door = hitInfo.transform.gameObject.GetComponent<Door>();
+            //        door.nearDoor = true;
+            //    }
+            //}
+            //else
+            //{
+            //    _hitWall = false;
+            //    _hitEnemyMelee = false;
+            //    if (door !=null)
+            //    {
+            //        door.nearDoor = false;
+            //        door.HideText();
+            //    }
+            //}
+
+            ForwardRay();
+            LeftRay();
+            RightRay();
+            if (ForwardRay() || LeftRay() || RightRay())
             {
-                if (!_hitEnemyMelee)
+                if (ForwardRay())
                 {
-                    if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                    if (enemyDist > 5)
                     {
-                        Debug.Log("Range - I have hit the enemy...");
-                        _hitEnemyRange = true;
-                        _hitEnemyMelee = false;
-                        _hitWall = false;
-                        battleButton.SetActive(true);
+                        if (actionsInTurn > 0)
+                        {
+
+                        }
                     }
+                    Debug.Log("Enemy forward");
+                }
+                else if (RightRay())
+                {
+                    Debug.Log("Enemy right side");
+                }
+                else if (LeftRay())
+                {
+                    Debug.Log("Enemy left side");
                 }
             }
             else
             {
-                _hitEnemyRange = false;
-            }
+                Debug.Log("No enemy detected");
 
-            if (Physics.Raycast(ranged, out hitInfo, 4))
-            {
-                if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("walls"))
+                if (front == null || (front != null && !front.CompareTag("Enemy") && !front.CompareTag("walls")))
                 {
-                    Debug.Log("I have hit a wall...");
-                    _hitWall = true;
-                    _hitEnemyRange = false;
-                    _hitEnemyMelee = false;
-                }
-                else if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-                {
-                    Debug.Log("Melee - I have hit the enemy...");
-                    _hitEnemyMelee = true;
-                    _hitEnemyRange = false;
                     _hitWall = false;
-                    battleButton.SetActive(true);
                 }
-                else if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Door"))
+                //else if (right == null || (right != null && !right.CompareTag("Enemy") && !right.CompareTag("walls")))
+                //{
+                //    if (actionsInTurn > 0)
+                //    {
+                //        TurnRight();
+                //    }
+                //}
+                //else if (left == null || (left != null && !left.CompareTag("Enemy") && !left.CompareTag("walls")))
+                //{
+                //    if (actionsInTurn > 0)
+                //    {
+                //        TurnLeft();
+                //    }
+                //}
+
+
+                ToBattleState();
+
+                if (Input.GetKeyDown(KeyCode.W))
                 {
-                    Debug.Log("Door - Show pop up text here...");
-                    door = hitInfo.transform.gameObject.GetComponent<Door>();
-                    door.nearDoor = true;
+                    PlayerMovementForward();
                 }
-            }
-            else
-            {
-                _hitWall = false;
-                _hitEnemyMelee = false;
-                if (door !=null)
+
+                if (Input.GetKeyDown(KeyCode.A))
                 {
-                    door.nearDoor = false;
-                    door.HideText();
+                    PlayerRotateLeft();
                 }
-            }
 
-            ToBattleState();
-
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                PlayerMovementForward();
-            }
-
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                PlayerRotateLeft();
-            }
-
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                PlayerRotateRight();
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    PlayerRotateRight();
+                }
             }
         }
+    }
+
+    public bool ForwardRay()
+    {
+        // Cast a ray from the enemy's position
+        Vector3 rayPosition = new Vector3(transform.position.x, 1, transform.position.z);
+
+        Ray Forward = new Ray(rayPosition, transform.TransformDirection(raycastForward));
+        RaycastHit hit;
+        Debug.DrawRay(rayPosition, transform.TransformDirection(raycastForward) * detectMelee, Color.blue);
+        // Perform the raycast
+        if (Physics.Raycast(Forward, out hit, detectMelee))
+        {
+            front = hit.collider.gameObject;
+        }
+        else
+        {
+            front = null;
+        }
+
+        // Perform the raycast
+        if (Physics.Raycast(Forward, out hit, detectRange))
+        {
+            // Check if the object hit is tagged as "Enemy"
+            if (hit.collider.CompareTag("Enemy"))
+            {
+                Debug.DrawRay(rayPosition, transform.TransformDirection(raycastForward) * detectRange, Color.blue);
+
+                enemyDist = hit.distance;
+                Debug.Log("Enemy detected: Can Attack");
+                return true;
+            }
+            else
+            {
+                enemyDist = 0;
+                return false;
+            }
+        }
+        else
+        {
+            enemyDist = 0;
+            return false;
+        }
+    }
+
+
+    public bool LeftRay()
+    {
+        // Cast a ray from the enemy's position
+        Vector3 rayPosition = new Vector3(transform.position.x, 1, transform.position.z);
+
+        Ray Left = new Ray(rayPosition, transform.TransformDirection(raycastLeft));
+        RaycastHit hit;
+        Debug.DrawRay(rayPosition, transform.TransformDirection(raycastLeft) * detectMelee, Color.yellow);
+        // Perform the raycast
+        if (Physics.Raycast(Left, out hit, detectMelee))
+        {
+            left = hit.collider.gameObject;
+        }
+        else
+        {
+            left = null;
+        }
+        // Perform the raycast
+        if (Physics.Raycast(Left, out hit, detectRange))
+        {
+            // Check if the object hit is tagged as "Enemy"
+            if (hit.collider.CompareTag("Enemy"))
+            {
+                Debug.DrawRay(rayPosition, transform.TransformDirection(raycastLeft) * detectRange, Color.yellow);
+
+                Debug.Log("Enemy detected Left");
+                return true;
+                // This will activate the left threat
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return false;
+    }
+
+
+    public bool RightRay()
+    {
+        // Cast a ray from the enemy's position
+        Vector3 rayPosition = new Vector3(transform.position.x, 1, transform.position.z);
+
+        Ray Right = new Ray(rayPosition, transform.TransformDirection(raycastRight));
+        RaycastHit hit;
+        Debug.DrawRay(rayPosition, transform.TransformDirection(raycastRight) * detectMelee, Color.red);
+        // Perform the raycast
+        if (Physics.Raycast(Right, out hit, detectMelee))
+        {
+            right = hit.collider.gameObject;
+        }
+        else
+        {
+            right = null;
+        }
+        // Perform the raycast
+        if (Physics.Raycast(Right, out hit, detectRange))
+        {
+            // Check if the object hit is tagged as "Enemy"
+            if (hit.collider.CompareTag("Enemy"))
+            {
+                Debug.DrawRay(rayPosition, transform.TransformDirection(raycastRight) * detectRange, Color.red);
+
+                Debug.Log("Enemy detected Right");
+                return true;
+                // This will activate the Right threat
+            }
+            else
+            {
+
+                return false;
+            }
+        }
+        return false;
     }
 
 
