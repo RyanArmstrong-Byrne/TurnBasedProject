@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,13 +13,16 @@ public class PlayerSystem : MonoBehaviour
     public int actionsInTurn = 3;
     public Text actionPointDisplay;
     public Text turnDisplay;
-    public bool _hitWall;
-    public bool _hitEnemyRange;
-    public bool _hitEnemyMelee;
+    [SerializeField] private bool _hitWallFront;
+    public bool hitDoorFront ;
+    [SerializeField] private bool _hitEnemyRange;
+    [SerializeField] private bool _hitEnemyMelee;
     public  GameObject battleButton;
     //bool _changedTurn;
     Door door;
     public EnemySystem enemySystem;
+
+    [SerializeField] GameObject Left_detect, Right_detect;
 
     [Header("Player Detection Variables")]
 
@@ -64,7 +66,7 @@ public class PlayerSystem : MonoBehaviour
     // press W key move a space forward
     public void PlayerMovementForward()
     {
-        if (actionsInTurn > 0 && !_hitWall)
+        if (actionsInTurn > 0 && !_hitWallFront && !hitDoorFront )
         //if(actionsInTurn > 0)
         {
             targetPosition += player.transform.forward * unit;
@@ -119,138 +121,180 @@ public class PlayerSystem : MonoBehaviour
 
     private void Update()
     {
+        #region Old
+        //if (GameManager.instance.state == GameStates.PlayerTurn)
+        //{
+        //if (!_changedTurn)
+        //{
+        //    _changedTurn = true;
+        //    UpdateActionPoints(0);
+        //}
+
+        //Ray ranged = new Ray(transform.position, transform.forward);
+        //RaycastHit hitInfo;
+        //if (Physics.Raycast(ranged, out hitInfo, 8))
+        //{
+        //    if (!_hitEnemyMelee)
+        //    {
+        //        if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        //        {
+        //            Debug.Log("Range - I have hit the enemy...");
+        //            _hitEnemyRange = true;
+        //            _hitEnemyMelee = false;
+        //            _hitWall = false;
+        //            battleButton.SetActive(true);
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    _hitEnemyRange = false;
+        //}
+
+        //if (Physics.Raycast(ranged, out hitInfo, 4))
+        //{
+        //    if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("walls"))
+        //    {
+        //        Debug.Log("I have hit a wall...");
+        //        _hitWall = true;
+        //        _hitEnemyRange = false;
+        //        _hitEnemyMelee = false;
+        //    }
+        //    else if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        //    {
+        //        Debug.Log("Melee - I have hit the enemy...");
+        //        _hitEnemyMelee = true;
+        //        _hitEnemyRange = false;
+        //        _hitWall = false;
+        //        battleButton.SetActive(true);
+        //    }
+        //    else if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Door"))
+        //    {
+        //        Debug.Log("Door - Show pop up text here...");
+        //        door = hitInfo.transform.gameObject.GetComponent<Door>();
+        //        door.nearDoor = true;
+        //    }
+        //}
+        //else
+        //{
+        //    _hitWall = false;
+        //    _hitEnemyMelee = false;
+        //    if (door !=null)
+        //    {
+        //        door.nearDoor = false;
+        //        door.HideText();
+        //    }
+        //}
+        #endregion
+
         if (GameManager.instance.state == GameStates.PlayerTurn)
         {
-            //if (!_changedTurn)
-            //{
-            //    _changedTurn = true;
-            //    UpdateActionPoints(0);
-            //}
-
-            //Ray ranged = new Ray(transform.position, transform.forward);
-            //RaycastHit hitInfo;
-            //if (Physics.Raycast(ranged, out hitInfo, 8))
-            //{
-            //    if (!_hitEnemyMelee)
-            //    {
-            //        if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-            //        {
-            //            Debug.Log("Range - I have hit the enemy...");
-            //            _hitEnemyRange = true;
-            //            _hitEnemyMelee = false;
-            //            _hitWall = false;
-            //            battleButton.SetActive(true);
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    _hitEnemyRange = false;
-            //}
-
-            //if (Physics.Raycast(ranged, out hitInfo, 4))
-            //{
-            //    if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("walls"))
-            //    {
-            //        Debug.Log("I have hit a wall...");
-            //        _hitWall = true;
-            //        _hitEnemyRange = false;
-            //        _hitEnemyMelee = false;
-            //    }
-            //    else if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-            //    {
-            //        Debug.Log("Melee - I have hit the enemy...");
-            //        _hitEnemyMelee = true;
-            //        _hitEnemyRange = false;
-            //        _hitWall = false;
-            //        battleButton.SetActive(true);
-            //    }
-            //    else if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Door"))
-            //    {
-            //        Debug.Log("Door - Show pop up text here...");
-            //        door = hitInfo.transform.gameObject.GetComponent<Door>();
-            //        door.nearDoor = true;
-            //    }
-            //}
-            //else
-            //{
-            //    _hitWall = false;
-            //    _hitEnemyMelee = false;
-            //    if (door !=null)
-            //    {
-            //        door.nearDoor = false;
-            //        door.HideText();
-            //    }
-            //}
-
             ForwardRay();
             LeftRay();
             RightRay();
+            
+            ToBattleState();
+            
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                PlayerMovementForward();
+            }
+            
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                PlayerRotateLeft();
+            }
+
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                PlayerRotateRight();
+            }
+
             if (ForwardRay() || LeftRay() || RightRay())
             {
                 if (ForwardRay())
                 {
-                    if (enemyDist > 5)
-                    {
-                        if (actionsInTurn > 0)
-                        {
+                    //if (enemyDist > 5)
+                    //{
+                    //    if (actionsInTurn > 0)
+                    //    {
 
-                        }
-                    }
-                    Debug.Log("Enemy forward");
+                    //    }
+                    //}
+                    Left_detect.SetActive(false);
+                    Right_detect.SetActive(false);
+
+
+                    Debug.Log("Enemy Forward");
                 }
                 else if (RightRay())
                 {
                     Debug.Log("Enemy right side");
+                    Left_detect.SetActive(false);
+                    Right_detect.SetActive(true);
                 }
                 else if (LeftRay())
                 {
                     Debug.Log("Enemy left side");
+                    Right_detect.SetActive(false);
+                    Left_detect.SetActive(true);
                 }
             }
             else
             {
+                if (Right_detect.activeInHierarchy)
+                {
+                    Right_detect.SetActive(false);
+                }
+                if (Left_detect.activeInHierarchy)
+                {
+                    Left_detect.SetActive(false); 
+                }
+
                 Debug.Log("No enemy detected");
 
                 if (front == null || (front != null && !front.CompareTag("Enemy") && !front.CompareTag("walls")))
                 {
-                    _hitWall = false;
-                }
-                //else if (right == null || (right != null && !right.CompareTag("Enemy") && !right.CompareTag("walls")))
-                //{
-                //    if (actionsInTurn > 0)
-                //    {
-                //        TurnRight();
-                //    }
-                //}
-                //else if (left == null || (left != null && !left.CompareTag("Enemy") && !left.CompareTag("walls")))
-                //{
-                //    if (actionsInTurn > 0)
-                //    {
-                //        TurnLeft();
-                //    }
-                //}
-
-
-                ToBattleState();
-
-                if (Input.GetKeyDown(KeyCode.W))
-                {
-                    PlayerMovementForward();
-                }
-
-                if (Input.GetKeyDown(KeyCode.A))
-                {
-                    PlayerRotateLeft();
-                }
-
-                if (Input.GetKeyDown(KeyCode.D))
-                {
-                    PlayerRotateRight();
+                    _hitWallFront = false;
                 }
             }
         }
     }
+
+    //if (Physics.Raycast(ranged, out hitInfo, 4))
+    //{
+    //    if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("walls"))
+    //    {
+    //        Debug.Log("I have hit a wall...");
+    //        _hitWall = true;
+    //        _hitEnemyRange = false;
+    //        _hitEnemyMelee = false;
+    //    }
+    //    else if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+    //    {
+    //        Debug.Log("Melee - I have hit the enemy...");
+    //        _hitEnemyMelee = true;
+    //        _hitEnemyRange = false;
+    //        _hitWall = false;
+    //        battleButton.SetActive(true);
+    //    }
+    //    else if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Door"))
+    //    {
+    //        Debug.Log("Door - Show pop up text here...");
+    //        door = hitInfo.transform.gameObject.GetComponent<Door>();
+    //        door.nearDoor = true;
+    //    }
+    //}
+    //else
+    //{
+    //    _hitWall = false;
+    //    _hitEnemyMelee = false;
+    //    if (door !=null)
+    //    {
+    //        door.nearDoor = false;
+    //        door.HideText();
+    //    }
+    //}
 
     public bool ForwardRay()
     {
@@ -264,6 +308,29 @@ public class PlayerSystem : MonoBehaviour
         if (Physics.Raycast(Forward, out hit, detectMelee))
         {
             front = hit.collider.gameObject;
+
+            if (hit.collider.CompareTag("Door"))
+            {
+                Debug.Log("Door - Show pop up text here...");
+                door = hit.transform.gameObject.GetComponent<Door>();
+                door.nearDoor = true;
+                hitDoorFront  = true;
+            }
+            else
+            {
+                hitDoorFront  = false;
+            }
+
+            // Check if the object hit is tagged as "walls"
+            if (hit.collider.CompareTag("walls"))
+            {
+                //Debug.Log("Forward Wall detected");
+                _hitWallFront = true;
+            }
+            else
+            {
+                _hitWallFront = false;
+            }
         }
         else
         {
@@ -279,7 +346,9 @@ public class PlayerSystem : MonoBehaviour
                 Debug.DrawRay(rayPosition, transform.TransformDirection(raycastForward) * detectRange, Color.blue);
 
                 enemyDist = hit.distance;
-                Debug.Log("Enemy detected: Can Attack");
+                hitDoorFront  = false;
+                _hitWallFront = false;
+                //Debug.Log("Enemy detected: Can Attack");
                 return true;
             }
             else
@@ -321,7 +390,7 @@ public class PlayerSystem : MonoBehaviour
             {
                 Debug.DrawRay(rayPosition, transform.TransformDirection(raycastLeft) * detectRange, Color.yellow);
 
-                Debug.Log("Enemy detected Left");
+                //Debug.Log("Enemy detected Left");
                 return true;
                 // This will activate the left threat
             }
@@ -359,7 +428,7 @@ public class PlayerSystem : MonoBehaviour
             {
                 Debug.DrawRay(rayPosition, transform.TransformDirection(raycastRight) * detectRange, Color.red);
 
-                Debug.Log("Enemy detected Right");
+                //Debug.Log("Enemy detected Right");
                 return true;
                 // This will activate the Right threat
             }

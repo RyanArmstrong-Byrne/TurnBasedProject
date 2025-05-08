@@ -12,15 +12,6 @@
       "source": "builtin",
       "dependencies": {}
     },
-    "com.unity.adaptiveperformance": {
-      "version": "5.1.0",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.profiling.core": "1.0.2"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.collab-proxy": {
       "version": "2.5.2",
       "depth": 0,
@@ -88,13 +79,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-    "com.unity.profiling.core": {
-      "version": "1.0.2",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
     "com.unity.settings-manager": {
       "version": "2.0.1",
       "depth": 2,
@@ -152,16 +136,6 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
-    },
-    "com.unity.visualscripting": {
-      "version": "1.9.5",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0",
-        "com.unity.modules.jsonserialize": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

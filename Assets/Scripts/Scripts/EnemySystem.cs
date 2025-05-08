@@ -79,6 +79,7 @@ public class EnemySystem : MonoBehaviour
                 if (ForwardRay() ||  RightRay() || LeftRay())
                 {
                     Debug.Log("Player Detected");
+                    Debug.Log("Need to create the BattleSystem for the Enemy");
 
                     
                     if (ForwardRay())

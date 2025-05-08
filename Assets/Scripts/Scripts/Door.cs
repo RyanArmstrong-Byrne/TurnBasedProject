@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +12,7 @@ public class Door : MonoBehaviour
     public bool isOpen;
     public bool nearDoor;
     [SerializeField] Text _interactionText;
+    [SerializeField] PlayerSystem _playerObject;
 
 
     private void Start()
@@ -24,6 +24,8 @@ public class Door : MonoBehaviour
 
         _interactionText = GameObject.Find("InteractionText").GetComponent<Text>();
         _interactionText.enabled = false;
+
+        _playerObject = GameObject.Find("RPGHeroPBR").GetComponent<PlayerSystem>();
     }
 
 
@@ -48,6 +50,7 @@ public class Door : MonoBehaviour
                         _interactionText.enabled = false;
                         isOpen = !isOpen;
                         DoorOBJ.SetActive(false);
+                        _playerObject.hitDoorFront = false;
                     }
                     else
                     {

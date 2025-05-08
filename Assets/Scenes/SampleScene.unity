@@ -1428,6 +1428,7 @@ MonoBehaviour:
   isOpen: 0
   nearDoor: 0
   _interactionText: {fileID: 0}
+  _playerObject: {fileID: 0}
 --- !u!1001 &75081780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5317,6 +5318,7 @@ MonoBehaviour:
   isOpen: 0
   nearDoor: 0
   _interactionText: {fileID: 0}
+  _playerObject: {fileID: 0}
 --- !u!65 &371087211
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11855,7 +11857,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 70, y: 110}
+  m_AnchoredPosition: {x: 15, y: 110}
   m_SizeDelta: {x: 630, y: 70}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &774955164
@@ -13431,8 +13433,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 113}
-  m_SizeDelta: {x: 700, y: 200}
+  m_AnchoredPosition: {x: 0, y: 120}
+  m_SizeDelta: {x: 850, y: 200}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &847496411
 MonoBehaviour:
@@ -13511,7 +13513,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 70, y: 110}
+  m_AnchoredPosition: {x: 15, y: 110}
   m_SizeDelta: {x: 630, y: 70}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &848346173
@@ -13911,7 +13913,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 196402, guid: 0b7f3b033306b6d4b956436528383403, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 196402, guid: 0b7f3b033306b6d4b956436528383403, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 196402, guid: 0b7f3b033306b6d4b956436528383403, type: 3}
+      propertyPath: m_TagString
+      value: Door
       objectReference: {fileID: 0}
     - target: {fileID: 448720, guid: 0b7f3b033306b6d4b956436528383403, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14017,7 +14027,7 @@ PrefabInstance:
       addedObject: {fileID: 2048696405}
     - targetCorrespondingSourceObject: {fileID: 196402, guid: 0b7f3b033306b6d4b956436528383403, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2048696401}
+      addedObject: {fileID: 2048696409}
   m_SourcePrefab: {fileID: 100100000, guid: 0b7f3b033306b6d4b956436528383403, type: 3}
 --- !u!1 &899854434 stripped
 GameObject:
@@ -15523,7 +15533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4927681395739018, guid: 1543549dcdf638d488bd40cb68dd9b8e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4927681395739018, guid: 1543549dcdf638d488bd40cb68dd9b8e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15599,18 +15609,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950fd80fb7853cb428e42c7dc4bdc966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPosition: {x: 0, y: 0, z: 4}
+  targetPosition: {x: 0, y: 0, z: 0}
   unit: 4
   player: {fileID: 220706885}
   targetRotation: {x: 0, y: 0, z: 0}
   actionsInTurn: 3
   actionPointDisplay: {fileID: 959617008}
   turnDisplay: {fileID: 1473230354}
-  _hitWall: 0
+  _hitWallFront: 0
+  hitDoorFront: 0
   _hitEnemyRange: 0
   _hitEnemyMelee: 0
   battleButton: {fileID: 1304460739}
   enemySystem: {fileID: 397442954}
+  Left_detect: {fileID: 562211879}
+  Right_detect: {fileID: 2108672841}
+  detectRange: 8
+  detectMelee: 4
+  raycastForward: {x: 0, y: 0, z: 1}
+  raycastLeft: {x: -1, y: 0, z: 0}
+  raycastRight: {x: 1, y: 0, z: 0}
+  front: {fileID: 0}
+  left: {fileID: 0}
+  right: {fileID: 0}
+  enemyDist: 0
 --- !u!65 &977448693
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15657,7 +15679,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &977448696
 MonoBehaviour:
@@ -16424,7 +16446,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 70, y: 110}
+  m_AnchoredPosition: {x: 15, y: 110}
   m_SizeDelta: {x: 630, y: 70}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1019166018
@@ -24799,6 +24821,7 @@ MonoBehaviour:
   isOpen: 0
   nearDoor: 0
   _interactionText: {fileID: 0}
+  _playerObject: {fileID: 0}
 --- !u!4 &1559403502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 476448, guid: cedd1289634600b4f9df04d76c4c2b4b, type: 3}
@@ -26744,6 +26767,7 @@ MonoBehaviour:
   isOpen: 0
   nearDoor: 0
   _interactionText: {fileID: 0}
+  _playerObject: {fileID: 0}
 --- !u!1 &1672089978
 GameObject:
   m_ObjectHideFlags: 0
@@ -36240,28 +36264,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 196402, guid: 0b7f3b033306b6d4b956436528383403, type: 3}
   m_PrefabInstance: {fileID: 894551313}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &2048696401
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048696393}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300100, guid: a7cc7f41ce50a474aa1df610be0b810f, type: 3}
 --- !u!114 &2048696405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36280,6 +36282,28 @@ MonoBehaviour:
   isOpen: 0
   nearDoor: 0
   _interactionText: {fileID: 0}
+  _playerObject: {fileID: 0}
+--- !u!65 &2048696409
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048696393}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.5049405, y: 7.6632614, z: 1.0912657}
+  m_Center: {x: 3.2996361, y: 4.048783, z: 0.003424605}
 --- !u!1001 &2054329497
 PrefabInstance:
   m_ObjectHideFlags: 0
