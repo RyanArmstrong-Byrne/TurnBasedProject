@@ -23,7 +23,7 @@ public class pickup : MonoBehaviour
             itemImage.SetActive(true);
             if (potions)
             {
-                PlayerHandler.instance.PotionsREF += 1;
+                PlayerHandler.instance.potionsREF += 1;
                 Debug.Log("This is a potion...");
             }
         }

@@ -62,19 +62,19 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Scripts\InventoryStats.cs" />
     <Compile Include="Assets\Scripts\Scripts\EnemyDetect.cs" />
+    <Compile Include="Assets\Scripts\Scripts\Stats.cs" />
     <Compile Include="Assets\Scripts\Scripts\ShrineMenu.cs" />
     <Compile Include="Assets\Scripts\Scripts\Compass.cs" />
+    <Compile Include="Assets\Scripts\Scripts\Menu.cs" />
+    <Compile Include="Assets\Scripts\Scripts\EnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\Scripts\PlayerHandler.cs" />
     <Compile Include="Assets\Scripts\Scripts\Gamemanager.cs" />
     <Compile Include="Assets\Scripts\Scripts\PlayerSystem.cs" />
     <Compile Include="Assets\Scripts\Scripts\health.cs" />
-    <Compile Include="Assets\Scripts\Scripts\Stats.cs" />
-    <Compile Include="Assets\Scripts\Scripts\Battle.cs" />
-    <Compile Include="Assets\Scripts\Scripts\Menu.cs" />
-    <Compile Include="Assets\Scripts\Scripts\EnemyMovement.cs" />
-    <Compile Include="Assets\Scripts\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\Scripts\EnemySystem.cs" />
     <Compile Include="Assets\Scripts\Scripts\pickup.cs" />
+    <Compile Include="Assets\Scripts\Scripts\BattleManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />

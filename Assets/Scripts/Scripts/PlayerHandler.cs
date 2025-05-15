@@ -10,11 +10,12 @@ public class PlayerHandler : MonoBehaviour
     public static PlayerHandler instance;
     [SerializeField] private StatDisplay statDisplay = new StatDisplay();
 
+    public float maxhealthREF;
     public float healthREF;
     public float strengthREF;
     public float magicREF;
     public float defenceREF;
-    public float PotionsREF;
+    public float potionsREF;
 
     private void Awake()
     {
@@ -30,11 +31,12 @@ public class PlayerHandler : MonoBehaviour
 
     private void Start()
     {
+        maxhealthREF = statDisplay.maxHealth;
         healthREF = statDisplay.health;
         strengthREF = statDisplay.strength;
         magicREF = statDisplay.magic;
         defenceREF = statDisplay.defence;
-        PotionsREF = statDisplay.potions;
+        potionsREF = statDisplay.potions;
     }
 }
 
@@ -44,9 +46,9 @@ public class StatDisplay
 {
     [SerializeField]
     public float health = 100;
-    public float strength = 3;
-    public float magic = 2;
+    public float maxHealth = 100;
+    public float strength = 5;
+    public float magic = 0;
     public float potions = 0;
     public int defence = 5;
-    public string displayName;
 }

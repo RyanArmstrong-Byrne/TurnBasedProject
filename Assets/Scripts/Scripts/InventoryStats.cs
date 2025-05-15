@@ -38,7 +38,7 @@ public class InventoryStats : MonoBehaviour
         currentSTRStat = PlayerHandler.instance.strengthREF;
         currentMAGStat = PlayerHandler.instance.magicREF;
         currentDEFStat = PlayerHandler.instance.defenceREF;
-        currentPotionsStat = PlayerHandler.instance.PotionsREF;
+        currentPotionsStat = PlayerHandler.instance.potionsREF;
         UpdateSTRUI();
         UpdateMAGUI();
         UpdateDEFUI();
