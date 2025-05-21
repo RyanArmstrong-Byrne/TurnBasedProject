@@ -23,6 +23,12 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private GameObject _movementHUD;
     [SerializeField] private GameObject _battleHUD;
     [SerializeField] private Text _battleText;
+    [SerializeField] PlayerHandler _playerHandler;
+    [SerializeField] EnemyHandler _enemyHandler;
+    [SerializeField] GameObject _playerObject;
+    [SerializeField] GameObject _enemyObject;
+    [SerializeField] PlayerSystem _playerSystem;
+    [SerializeField] EnemySystem _enemySystem;
     [Header("Player Elements")]
     [SerializeField] private Image _battlePlayerHealthBar;
     [SerializeField] private Text _battlePlayerTextHealthBar;
@@ -31,6 +37,8 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private Image _battleEnemyHealthBar;
     [SerializeField] private Text _battleEnemyTextHealthBar;
     [SerializeField] private Text _enemyAttackValue, _enemyMagicValue, _enemyDefenceValue;
+
+    private float playerattack;
 
     [Header("Bool Checks")]
     [SerializeField] private bool _hasPressedAction = false;
@@ -63,8 +71,8 @@ public class BattleManager : MonoBehaviour
     public void EnemyBattleStart()
     {
         _startFromEnemy = true;
+        UpdateElements();
         GameManager.instance.state = GameStates.Battle;
-        UIElements();
         StartCoroutine(EnemyTurn());
 
         battleCamera.SetActive(true);
@@ -75,10 +83,11 @@ public class BattleManager : MonoBehaviour
 
 
     }
+    // Start Battle Button
     public void PlayerBattleStart()
     {
+        UpdateElements();
         GameManager.instance.state = GameStates.Battle;
-        UIElements();
         StartCoroutine(PlayerTurn(0f));
 
         battleCamera.SetActive(true);
@@ -89,10 +98,22 @@ public class BattleManager : MonoBehaviour
 
     }
 
-    private void UIElements()
+    private void UpdateElements()
     {
         // Player Elements
-        PlayerHandler _playerHandler = PlayerHandler.instance;
+        if (_playerSystem == null)
+        {
+            Debug.Log("update start....");
+            _playerObject = GameObject.FindWithTag("Player");
+            _playerSystem = _playerObject.GetComponent<PlayerSystem>();
+            _playerHandler = PlayerHandler.instance;
+
+            _enemyObject = GameObject.FindWithTag("Enemy");
+            _enemySystem = _enemyObject.GetComponent<EnemySystem>();
+            _enemyHandler = EnemyHandler.instance;
+            Debug.Log("update end....");
+        }
+
         _battlePlayerHealthBar.fillAmount = _playerHandler.healthREF / 100;
         _battlePlayerTextHealthBar.text = _playerHandler.healthREF.ToString();
         _playerStrengthValue.text = $"Strength: {_playerHandler.strengthREF}";
@@ -101,7 +122,6 @@ public class BattleManager : MonoBehaviour
         _playerPotionsValue.text = $"Potions: {_playerHandler.potionsREF}";
 
         // Enemy Elements
-        EnemyHandler _enemyHandler = EnemyHandler.instance;
         _battleEnemyHealthBar.fillAmount = _enemyHandler.healthREF / 100;
         _battleEnemyTextHealthBar.text = _enemyHandler.healthREF.ToString();
         _enemyAttackValue.text = $"Strength: {_enemyHandler.strengthREF}";
@@ -185,6 +205,7 @@ public class BattleManager : MonoBehaviour
             string _attackText = "Player Attacks Enemy...";
             Debug.Log(_attackText);
             _battleText.text = _attackText;
+            AttackEnemy();
             StartCoroutine(EnemyTurn());
         }
         else
@@ -200,9 +221,9 @@ public class BattleManager : MonoBehaviour
         if (!_hasPressedAction)
         {
             _hasPressedAction = true;
-            if (PlayerHandler.instance.healthREF < PlayerHandler.instance.maxhealthREF)
+            if (_playerHandler.healthREF < _playerHandler.maxhealthREF)
             {
-                if (PlayerHandler.instance.potionsREF > 0)
+                if (_playerHandler.potionsREF > 0)
                 {
                     HealPlayer(_healAmount);
                     string _healText = "Player uses a potion...";
@@ -234,18 +255,78 @@ public class BattleManager : MonoBehaviour
     }
     #endregion
 
+    #region Player Battle Fuctions
     private void HealPlayer(int healingAmount)
     {
         // Increase health by X amount
-        PlayerHandler.instance.healthREF += healingAmount;
-        if (PlayerHandler.instance.healthREF > PlayerHandler.instance.maxhealthREF)
+        _playerHandler.healthREF += healingAmount;
+        if (_playerHandler.healthREF > _playerHandler.maxhealthREF)
         {
-            PlayerHandler.instance.healthREF = PlayerHandler.instance.maxhealthREF;
+            _playerHandler.healthREF = _playerHandler.maxhealthREF;
         }
         // Decrease the potion count by one
-        PlayerHandler.instance.potionsREF -= 1;
-        UIElements();
+        _playerHandler.potionsREF -= 1;
+        UpdateElements();
     }
+
+    private void AttackEnemy()
+    {
+        // Check how far the enemy is from the player
+        // To get range or melee
+        if (_playerSystem.enemyDist > 6)
+        {
+            //ranged
+            Debug.Log($"Range attack... {_playerHandler.magicREF}");
+            playerattack = _playerHandler.magicREF;
+            Debug.Log($"player Attack: {playerattack}");
+        }
+        else
+        {
+            //melee
+            Debug.Log($"Melee attack...{_playerHandler.strengthREF}");
+            playerattack = _playerHandler.strengthREF;
+            Debug.Log($"player Attack: {playerattack}");
+        }
+
+        // Player attack value (minus) Enemy defence value
+        //e.g. 30 - 25 = 5 (true attack damage)
+        playerattack = playerattack - _enemyHandler.defenceREF;
+        Debug.Log($"player Attack: {playerattack}");
+        // update UI & edit enemy current health
+        if (playerattack < 0)
+        {
+            playerattack = 0;
+        }
+        _enemyHandler.healthREF = _enemyHandler.healthREF - playerattack;
+        string _attackText = $"Player Did {playerattack} damage against enemy";
+        _battleText.text = _attackText;
+        UpdateElements();
+    }
+
+    // Enemy attacking player
+    private void BlockEnemyAttack()
+    {
+        // get the attack value from the enemy
+        // Get the defence value from the player
+        // then half the value (this is the true attackvalue)
+        // Then deal damage to the player and update UI
+        
+    }
+
+    #endregion
+
+    #region Enemy Battle Function
+
+    private void AttackPlayer()
+    {
+
+    }
+
+    private void BlockPlayerAttack()
+    {
+
+    }
+    #endregion
 
     public void OnEndGame() // Used only in the GameWonSequence
     {

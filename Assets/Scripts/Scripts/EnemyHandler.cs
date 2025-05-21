@@ -44,5 +44,5 @@ public class EnemyStatDisplay
     public float enemyHealth = 100;
     public float enemyStrength = 25;
     public float enemyMagic = 10;
-    public int enemyDefence = 15;
+    public int enemyDefence = 5;
 }

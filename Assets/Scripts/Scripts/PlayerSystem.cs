@@ -17,6 +17,7 @@ public class PlayerSystem : MonoBehaviour
     public bool hitDoorFront;
     [SerializeField] private bool _hitEnemyRange;
     [SerializeField] private bool _hitEnemyMelee;
+
     // public GameObject battleButton;
     //bool _changedTurn;
     Door door;
@@ -122,6 +123,8 @@ public class PlayerSystem : MonoBehaviour
     {
         if (GameManager.instance.state == GameStates.PlayerTurn)
         {
+            Debug.Log($"Enemy Dis:{enemyDist}");
+
             ForwardRay();
             LeftRay();
             RightRay();
@@ -207,6 +210,8 @@ public class PlayerSystem : MonoBehaviour
         Ray Forward = new Ray(rayPosition, transform.TransformDirection(raycastForward));
         RaycastHit hit;
         Debug.DrawRay(rayPosition, transform.TransformDirection(raycastForward) * detectMelee, Color.blue);
+        Debug.DrawRay(rayPosition, transform.TransformDirection(raycastForward) * detectRange, Color.magenta);
+
         // Perform the raycast
         if (Physics.Raycast(Forward, out hit, detectMelee))
         {
@@ -233,7 +238,7 @@ public class PlayerSystem : MonoBehaviour
             else
             {
                 _hitWallFront = false;
-            }
+            }          
         }
         else
         {
@@ -246,8 +251,6 @@ public class PlayerSystem : MonoBehaviour
             // Check if the object hit is tagged as "Enemy"
             if (hit.collider.CompareTag("Enemy"))
             {
-                Debug.DrawRay(rayPosition, transform.TransformDirection(raycastForward) * detectRange, Color.blue);
-
                 enemyDist = hit.distance;
                 hitDoorFront = false;
                 _hitWallFront = false;

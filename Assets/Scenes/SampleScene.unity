@@ -5898,6 +5898,12 @@ MonoBehaviour:
   _movementHUD: {fileID: 939920287}
   _battleHUD: {fileID: 315544520}
   _battleText: {fileID: 1709616159}
+  _playerHandler: {fileID: 0}
+  _enemyHandler: {fileID: 0}
+  _playerObject: {fileID: 0}
+  _enemyObject: {fileID: 0}
+  _playerSystem: {fileID: 0}
+  _enemySystem: {fileID: 0}
   _battlePlayerHealthBar: {fileID: 261226863}
   _battlePlayerTextHealthBar: {fileID: 732640774}
   _playerStrengthValue: {fileID: 434502471}
@@ -5912,6 +5918,7 @@ MonoBehaviour:
   _hasPressedAction: 0
   _startFromEnemy: 0
   _isBlocked: 0
+  _healAmount: 15
 --- !u!4 &388356949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 448002, guid: 64cb684f38ab4e547a77225cd823cf62, type: 3}
@@ -9632,7 +9639,7 @@ MonoBehaviour:
     enemyHealth: 100
     enemyStrength: 25
     enemyMagic: 10
-    enemyDefence: 15
+    enemyDefence: 5
   healthREF: 0
   strengthREF: 0
   magicREF: 0
@@ -9651,10 +9658,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statDisplay:
     health: 100
+    maxHealth: 100
     strength: 5
     magic: 0
     potions: 0
     defence: 5
+  maxhealthREF: 0
   healthREF: 0
   strengthREF: 0
   magicREF: 0
@@ -15816,7 +15825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &939920288
 RectTransform:
   m_ObjectHideFlags: 0
