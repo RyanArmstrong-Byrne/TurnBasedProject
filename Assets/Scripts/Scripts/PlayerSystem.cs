@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,8 +33,7 @@ public class PlayerSystem : MonoBehaviour
     public Vector3 raycastForward = Vector3.forward;
     public Vector3 raycastLeft = Vector3.left;
     public Vector3 raycastRight = Vector3.right;
-
-    [Header("Objects that the enemy sees (hits)")]
+    [Header("Objects that the player sees (hits)")]
     public GameObject front;
     public GameObject left;
     public GameObject right;
@@ -46,7 +46,7 @@ public class PlayerSystem : MonoBehaviour
         //turnDisplay.text = "Player Turn";
 
         StartPlayerTurn();
-        BattleManager.instance.battleButton.SetActive(false);
+        // BattleManager.instance.battleButton.SetActive(false);
     }
     private void LateUpdate()
     {
@@ -84,17 +84,24 @@ public class PlayerSystem : MonoBehaviour
     //press A key rotate left
     // rotate -90
     // minus 1 action point
-    public void PlayerRotateLeft()
+    public void PlayerRotateLeft(bool forBattle)
     {
-        if (actionsInTurn > 0)
+        if (forBattle)
         {
-            //player.transform.rotation
             targetRotation -= Vector3.up * 90;
             player.transform.rotation = transform.rotation;
-            Debug.Log("Moved Left");
-            UpdateActionPoints(1);
         }
-
+        else
+        {
+            if (actionsInTurn > 0)
+            {
+                //player.transform.rotation
+                targetRotation -= Vector3.up * 90;
+                player.transform.rotation = transform.rotation;
+                Debug.Log("Moved Left");
+                UpdateActionPoints(1);
+            }
+        }
     }
 
     #endregion
@@ -104,62 +111,42 @@ public class PlayerSystem : MonoBehaviour
     // rotate 90
     // minus 1 action point
 
-    public void PlayerRotateRight()
+    public void PlayerRotateRight(bool forBattle)
     {
-        if (actionsInTurn > 0)
+        if (forBattle)
         {
-            //player.transform.rotation
-            targetRotation += UnityEngine.Vector3.up * 90;
+            targetRotation += Vector3.up * 90;
             player.transform.rotation = transform.rotation;
-            UpdateActionPoints(1);
-            Debug.Log("Moved Right");
         }
-
+        else
+        {
+            if (actionsInTurn > 0)
+            {
+                //player.transform.rotation
+                targetRotation += Vector3.up * 90;
+                player.transform.rotation = transform.rotation;
+                UpdateActionPoints(1);
+                Debug.Log("Moved Right");
+            }
+        }
     }
 
     #endregion
 
     private void Update()
     {
-        if (GameManager.instance.state == GameStates.PlayerTurn)
+        if (GameManager.instance.state != GameStates.Battle)
         {
-            Debug.Log($"Enemy Dis:{enemyDist}");
-
             ForwardRay();
             LeftRay();
             RightRay();
-
-            // ToBattleState();
-
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                PlayerMovementForward();
-            }
-
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                PlayerRotateLeft();
-            }
-
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                PlayerRotateRight();
-            }
 
             if (ForwardRay() || LeftRay() || RightRay())
             {
                 if (ForwardRay())
                 {
-                    //if (enemyDist > 5)
-                    //{
-                    //    if (actionsInTurn > 0)
-                    //    {
-
-                    //    }
-                    //}
                     Left_detect.SetActive(false);
                     Right_detect.SetActive(false);
-
                     BattleManager.instance.battleButton.SetActive(true);
 
                     Debug.Log("Enemy Forward");
@@ -198,6 +185,32 @@ public class PlayerSystem : MonoBehaviour
                     _hitWallFront = false;
                 }
             }
+
+        }
+
+
+        if (GameManager.instance.state == GameStates.PlayerTurn)
+        {
+            Debug.Log($"Enemy Dis:{enemyDist}");
+
+
+            // ToBattleState();
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                PlayerMovementForward();
+            }
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                PlayerRotateLeft(false);
+            }
+
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                PlayerRotateRight(false);
+            }
+
         }
     }
 
@@ -238,7 +251,7 @@ public class PlayerSystem : MonoBehaviour
             else
             {
                 _hitWallFront = false;
-            }          
+            }
         }
         else
         {
@@ -360,6 +373,29 @@ public class PlayerSystem : MonoBehaviour
             //_changedTurn = false;
         }
 
+    }
+
+    public void FaceEnemy()
+    {
+        // player to rotate towards enemy's direction
+
+        // Find which side the enemy is on
+        // Left side or the right side or even behide us
+        // If side is left turn lef 
+        if (!ForwardRay() && !Left_detect.activeInHierarchy && !Right_detect.activeInHierarchy)
+        {
+            targetRotation += Vector3.up * 180;
+            player.transform.rotation = transform.rotation;
+        }
+        else if (Left_detect.activeInHierarchy)
+        {
+            PlayerRotateLeft(true);
+        }
+        // If side is right turn right 
+        else if (Right_detect.activeInHierarchy)
+        {
+            PlayerRotateRight(true);
+        }
     }
 
     // public void ToBattleState()

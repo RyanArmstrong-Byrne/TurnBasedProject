@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Scripts\ShrineMenu.cs" />
     <Compile Include="Assets\Scripts\Scripts\Compass.cs" />
     <Compile Include="Assets\Scripts\Scripts\EnemyHandler.cs" />
+    <Compile Include="Assets\Scripts\Scripts\LoadingScene.cs" />
     <Compile Include="Assets\Scripts\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\Scripts\Door.cs" />

@@ -55,13 +55,19 @@ public class EnemySystem : MonoBehaviour
         turnTimer = 2;
     }
 
+    IEnumerator delayBattleStart()
+    {
+        yield return new WaitForSeconds(1f);
+        BattleManager.instance.EnemyBattleStart();
+    }
+
     private void LateUpdate()
     {
         transform.position = targetPosition;
         transform.rotation = Quaternion.Euler(targetRotation);
         this.transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
-    
+
 
     void Update()
     {
@@ -76,21 +82,47 @@ public class EnemySystem : MonoBehaviour
 
 
                 Debug.Log("Do action");
-                if (ForwardRay() ||  RightRay() || LeftRay())
+                if (ForwardRay() || RightRay() || LeftRay())
                 {
                     Debug.Log("Player Detected");
                     Debug.Log("Need to create the BattleSystem for the Enemy");
 
-                    
+
                     if (ForwardRay())
                     {
-                        if (playerDist > 5)
+                        if (actionsInTurn >= 2)
                         {
-                            if (actionsInTurn > 0)
+                            if (playerDist > 5)
                             {
-                                Forward();
+                                // 50/50 change of range or melee
+                                int attacknumber = Random.Range(1, 3);
+                                // If it is range start battle
+                                if (attacknumber == 1)
+                                {
+                                    Debug.Log("ranged attack");
+                                    BattleManager.instance.EnemyBattleStart();
+                                }
+                                // else walk forward and then start battle 
+                                else // attacknumber = 2
+                                {
+                                    Debug.Log("melee attack");
+                                    Forward();
+                                    StartCoroutine(delayBattleStart());
+                                }
                             }
+                            else
+                            {
+                                BattleManager.instance.EnemyBattleStart();
+                            }
+
                         }
+                        // if (playerDist > 5)
+                        //     {
+                        //         if (actionsInTurn > 0)
+                        //         {
+                        //             Forward();
+                        //         }
+                        //     }
                     }
                     else if (RightRay())
                     {
@@ -307,4 +339,23 @@ public class EnemySystem : MonoBehaviour
         return false;
     }
     #endregion
+
+    public void FacePlayer()
+    {
+        //if the player is behind
+        if (!ForwardRay() && !RightRay() && !LeftRay())
+        {
+            targetRotation += Vector3.up * 180f;
+        }
+        //else if player is on the left
+        else if (LeftRay())
+        {
+            targetRotation -= Vector3.up * 90f;
+        }
+        //else if player is on the right
+        else if (RightRay())
+        {
+            targetRotation += Vector3.up * 90f;
+        }
+    }
 }

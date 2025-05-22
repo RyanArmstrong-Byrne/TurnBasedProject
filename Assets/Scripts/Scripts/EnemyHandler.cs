@@ -42,7 +42,7 @@ public class EnemyStatDisplay
 {
     [SerializeField]
     public float enemyHealth = 100;
-    public float enemyStrength = 25;
-    public float enemyMagic = 10;
-    public int enemyDefence = 5;
+    public float enemyStrength = 35;
+    public float enemyMagic = 25;
+    public int enemyDefence = 10;
 }

@@ -47,8 +47,8 @@ public class StatDisplay
     [SerializeField]
     public float health = 100;
     public float maxHealth = 100;
-    public float strength = 5;
+    public float strength = 10;
     public float magic = 0;
     public float potions = 0;
-    public int defence = 5;
+    public int defence = 10;
 }

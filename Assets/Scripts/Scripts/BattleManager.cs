@@ -20,6 +20,10 @@ public class BattleManager : MonoBehaviour
     public bool isPlayerDead = false;
 
     [Header("Battle Elements")]
+
+    [SerializeField] GameObject gameOverMenu;
+    [SerializeField] Text gameOverText;
+
     [SerializeField] private GameObject _movementHUD;
     [SerializeField] private GameObject _battleHUD;
     [SerializeField] private Text _battleText;
@@ -40,6 +44,10 @@ public class BattleManager : MonoBehaviour
 
     private float playerattack;
 
+    private float enemyattack;
+
+    
+
     [Header("Bool Checks")]
     [SerializeField] private bool _hasPressedAction = false;
     [SerializeField] private bool _startFromEnemy = false;
@@ -55,11 +63,12 @@ public class BattleManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        battleButton.SetActive(false);
     }
 
     private void Start()
     {
-        battleButton.SetActive(false);
         battleCamera.SetActive(false);
         _movementHUD.SetActive(true);
         _battleHUD.SetActive(false);
@@ -72,6 +81,7 @@ public class BattleManager : MonoBehaviour
     {
         _startFromEnemy = true;
         UpdateElements();
+        _playerSystem.FaceEnemy();
         GameManager.instance.state = GameStates.Battle;
         StartCoroutine(EnemyTurn());
 
@@ -80,13 +90,12 @@ public class BattleManager : MonoBehaviour
         battleButton.SetActive(false);
         _battleHUD.SetActive(true);
         _movementHUD.SetActive(false);
-
-
     }
     // Start Battle Button
     public void PlayerBattleStart()
     {
         UpdateElements();
+        _enemySystem.FacePlayer();
         GameManager.instance.state = GameStates.Battle;
         StartCoroutine(PlayerTurn(0f));
 
@@ -95,7 +104,6 @@ public class BattleManager : MonoBehaviour
         battleButton.SetActive(false);
         _battleHUD.SetActive(true);
         _movementHUD.SetActive(false);
-
     }
 
     private void UpdateElements()
@@ -132,6 +140,7 @@ public class BattleManager : MonoBehaviour
     #region Enemy Turn System
     IEnumerator EnemyTurn()
     {
+        
         if (!_startFromEnemy)
         {
             yield return new WaitForSeconds(2f);
@@ -148,9 +157,18 @@ public class BattleManager : MonoBehaviour
         }
         _battleText.text = $"Enemy is making a choice...";
         Debug.Log("Enemy will do actions here... Wait time will be defined beforehand");
+        AttackPlayer();
         yield return new WaitForSeconds(2f);
         Debug.Log("Enemy Turn is now over");
-        StartCoroutine(PlayerTurn(0f));
+        if (_playerHandler.healthREF <= 0)
+        {
+            DeathSequence();
+        }
+        else
+        {
+            StartCoroutine(PlayerTurn(0f));
+        }
+
     }
     #endregion
 
@@ -298,20 +316,15 @@ public class BattleManager : MonoBehaviour
             playerattack = 0;
         }
         _enemyHandler.healthREF = _enemyHandler.healthREF - playerattack;
-        string _attackText = $"Player Did {playerattack} damage against enemy";
+        string _attackText = $"Player did {playerattack} damage against enemy";
         _battleText.text = _attackText;
         UpdateElements();
+        if (_enemyHandler.healthREF <= 0)
+        {
+            GameWonSequence();
+        }
     }
 
-    // Enemy attacking player
-    private void BlockEnemyAttack()
-    {
-        // get the attack value from the enemy
-        // Get the defence value from the player
-        // then half the value (this is the true attackvalue)
-        // Then deal damage to the player and update UI
-        
-    }
 
     #endregion
 
@@ -319,14 +332,61 @@ public class BattleManager : MonoBehaviour
 
     private void AttackPlayer()
     {
+        // Check how far the enemy is from the player
+        // To get range or melee
+        if (_playerSystem.enemyDist > 6)
+        {
+            //ranged
+            Debug.Log($"Range attack... {_enemyHandler.magicREF}");
+            enemyattack = _enemyHandler.magicREF;
+            Debug.Log($"player Attack: {enemyattack}");
+        }
+        else
+        {
+            //melee
+            Debug.Log($"Melee attack...{_enemyHandler.strengthREF}");
+            enemyattack = _enemyHandler.strengthREF;
+            Debug.Log($"enemy Attack: {enemyattack}");
+        }
 
+        if (_isBlocked)
+        {
+            // Player attack value (minus) Enemy defence value
+            //e.g. 30 - 25 = 5 (true attack damage)
+            enemyattack = enemyattack - _playerHandler.defenceREF;
+            enemyattack = enemyattack / 2;
+            enemyattack = MathF.Round(enemyattack);
+            Debug.Log($"enemy Attack: {enemyattack}");
+            // update UI & edit enemy current health
+            if (enemyattack < 0)
+            {
+                enemyattack = 0;
+            }
+            _playerHandler.healthREF = _playerHandler.healthREF - enemyattack;
+            string _attackText = $"Enemy did {enemyattack} damage against player";
+            _battleText.text = _attackText;
+            UpdateElements();
+        }
+        else // Player didn't block 
+        {
+            // Player attack value (minus) Enemy defence value
+            //e.g. 30 - 25 = 5 (true attack damage)
+            enemyattack = enemyattack - _playerHandler.defenceREF;
+            Debug.Log($"enemy Attack: {enemyattack}");
+            // update UI & edit enemy current health
+            if (enemyattack < 0)
+            {
+                enemyattack = 0;
+            }
+            _playerHandler.healthREF = _playerHandler.healthREF - enemyattack;
+            string _attackText = $"Enemy did {enemyattack} damage against player";
+            _battleText.text = _attackText;
+            UpdateElements();
+        }
     }
 
-    private void BlockPlayerAttack()
-    {
-
-    }
     #endregion
+
 
     public void OnEndGame() // Used only in the GameWonSequence
     {
@@ -339,30 +399,29 @@ public class BattleManager : MonoBehaviour
         state = BattleStates.Death;
     }
 
-    private void DeathSequence()
+    private void GameOverMenu()
     {
-        OnDeath();
-        OnEndGame();
-    }
-
-    private void GameWonSequence(bool restartLevel)
-    {
-        OnEndGame();
-
-        if (restartLevel)
+        gameOverMenu.SetActive(true);
+        if (isPlayerDead)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            gameOverText.text = "GAME OVER... YOU LOSE";
+        }
+        else
+        {
+            gameOverText.text = "GAME OVER... YOU WIN";
         }
     }
 
-
-    public void TriggerWinState(bool restartLevel)
+    private void DeathSequence()
     {
-        GameWonSequence(restartLevel);
+        OnDeath();
+        GameOverMenu();
     }
-    public void TriggerLoseState()
+
+    private void GameWonSequence()
     {
-        DeathSequence();
+        OnEndGame();
+        GameOverMenu();
     }
 }
 
