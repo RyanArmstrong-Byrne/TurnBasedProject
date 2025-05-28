@@ -180,9 +180,15 @@ public class PlayerSystem : MonoBehaviour
 
                 Debug.Log("No enemy detected");
 
-                if (front == null || (front != null && !front.CompareTag("Enemy") && !front.CompareTag("walls")))
+                if (front == null || (front != null && !front.CompareTag("Enemy") && !front.CompareTag("walls") && !front.CompareTag("Door")))
                 {
                     _hitWallFront = false;
+                    hitDoorFront = false;
+                    if (door != null)
+                    {
+                        door.nearDoor = false;
+                        GameManager.instance.nearADoor = false;
+                    }
                 }
             }
 
@@ -236,21 +242,14 @@ public class PlayerSystem : MonoBehaviour
                 door = hit.transform.gameObject.GetComponent<Door>();
                 door.nearDoor = true;
                 hitDoorFront = true;
-            }
-            else
-            {
-                hitDoorFront = false;
+                GameManager.instance.nearADoor = true;
             }
 
             // Check if the object hit is tagged as "walls"
             if (hit.collider.CompareTag("walls"))
             {
-                //Debug.Log("Forward Wall detected");
+                Debug.Log("Forward Wall detected");
                 _hitWallFront = true;
-            }
-            else
-            {
-                _hitWallFront = false;
             }
         }
         else

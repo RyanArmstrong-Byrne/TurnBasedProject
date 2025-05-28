@@ -114,7 +114,10 @@ public class EnemySystem : MonoBehaviour
                             {
                                 BattleManager.instance.EnemyBattleStart();
                             }
-
+                        }
+                        else
+                        {
+                            BattleManager.instance.EnemyBattleStart();
                         }
                         // if (playerDist > 5)
                         //     {

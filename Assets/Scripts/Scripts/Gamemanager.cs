@@ -8,7 +8,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameObject pauseMenu;
     public GameStates state = GameStates.PlayerTurn;
+    public GameStates currentState;
 
+    //bool for near a door
+    public bool nearADoor;
     private void Awake()
     {
         if (instance == null)
@@ -40,14 +43,17 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
+        currentState = state;
         state = GameStates.Pause;
     }
 
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
-        state = GameStates.PlayerTurn;
+        state = currentState;
     }
+
+
 }
 
 public enum GameStates

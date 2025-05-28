@@ -37,6 +37,7 @@ public class Door : MonoBehaviour
             {
                 if (!_interactionText.enabled)
                 {
+                    Debug.Log("Should Display Interaction Text");
                     _interactionText.enabled = true;
                 }
 
@@ -45,7 +46,7 @@ public class Door : MonoBehaviour
                     Debug.Log("Interaction");
                     if (keyINV.activeInHierarchy)
                     {
-                        nearDoor = false; 
+                        nearDoor = false;
                         keyINV_sprite.SetActive(false);
                         _interactionText.enabled = false;
                         isOpen = !isOpen;
@@ -60,10 +61,18 @@ public class Door : MonoBehaviour
                 }
             }
         }
+        // else
+        // {
+        if (GameManager.instance.nearADoor == false)
+        {
+            HideText();
+        }
+        // }
     }
 
-    public void HideText()
+    private void HideText()
     {
+        Debug.Log("DisableText");
         _interactionText.enabled = false;
     }
 
