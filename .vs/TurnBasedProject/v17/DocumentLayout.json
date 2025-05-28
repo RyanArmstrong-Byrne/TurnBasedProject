@@ -1,17 +1,29 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\",
+  "WorkspaceRootPath": "C:\\Users\\ryana\\Desktop\\Game Dev_!\\TurnBasedProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|c:\\users\\30095350\\documents\\github\\turnbasedproject\\assets\\scripts\\scripts\\enemysystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\enemysystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|c:\\users\\ryana\\desktop\\game dev_!\\turnbasedproject\\assets\\scripts\\scripts\\loadingscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\loadingscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|c:\\users\\30095350\\documents\\github\\turnbasedproject\\assets\\scripts\\scripts\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|c:\\users\\ryana\\desktop\\game dev_!\\turnbasedproject\\assets\\scripts\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|c:\\users\\ryana\\desktop\\game dev_!\\turnbasedproject\\assets\\scripts\\scripts\\shrinemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\shrinemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|C:\\Users\\ryana\\Desktop\\Game Dev_!\\TurnBasedProject\\assets\\scripts\\scripts\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|c:\\users\\30095350\\documents\\github\\turnbasedproject\\assets\\scripts\\scripts\\playersystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|C:\\Users\\ryana\\Desktop\\Game Dev_!\\TurnBasedProject\\assets\\scripts\\scripts\\enemysystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\enemysystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|c:\\users\\ryana\\desktop\\game dev_!\\turnbasedproject\\assets\\scripts\\scripts\\playersystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7DEBFB3-E8C7-98D1-4A56-6A2744FB1280}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scripts\\playersystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,32 +34,70 @@
       "DocumentGroups": [
         {
           "DockedWidth": 189,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoadingScene.cs",
+              "DocumentMoniker": "C:\\Users\\ryana\\Desktop\\Game Dev_!\\TurnBasedProject\\Assets\\Scripts\\Scripts\\LoadingScene.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\LoadingScene.cs",
+              "ToolTip": "C:\\Users\\ryana\\Desktop\\Game Dev_!\\TurnBasedProject\\Assets\\Scripts\\Scripts\\LoadingScene.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts\\LoadingScene.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T14:59:56.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Gamemanager.cs",
+              "DocumentMoniker": "C:\\Users\\ryana\\Desktop\\Game Dev_!\\TurnBasedProject\\Assets\\Scripts\\Scripts\\Gamemanager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\Gamemanager.cs",
+              "ToolTip": "C:\\Users\\ryana\\Desktop\\Game Dev_!\\TurnBasedProject\\Assets\\Scripts\\Scripts\\Gamemanager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts\\Gamemanager.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAowAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T14:58:47.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ShrineMenu.cs",
+              "DocumentMoniker": "C:\\Users\\ryana\\Desktop\\Game Dev_!\\TurnBasedProject\\Assets\\Scripts\\Scripts\\ShrineMenu.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\ShrineMenu.cs",
+              "ToolTip": "C:\\Users\\ryana\\Desktop\\Game Dev_!\\TurnBasedProject\\Assets\\Scripts\\Scripts\\ShrineMenu.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scripts\\ShrineMenu.cs",
+              "ViewState": "AQIAAEAAAAAAAAAAAAAiwF0AAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T14:49:58.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "BattleManager.cs",
-              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\BattleManager.cs",
+              "DocumentMoniker": "C:\\Users\\ryana\\Desktop\\Game Dev_!\\TurnBasedProject\\Assets\\Scripts\\Scripts\\BattleManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\BattleManager.cs",
-              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\BattleManager.cs",
+              "ToolTip": "C:\\Users\\ryana\\Desktop\\Game Dev_!\\TurnBasedProject\\Assets\\Scripts\\Scripts\\BattleManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Scripts\\BattleManager.cs",
-              "ViewState": "AgIAAO8AAAAAAAAAAAAQwAoBAAAAAAAAAAAAAA==",
+              "ViewState": "AQIAAIsAAAAAAAAAAAAcwMMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-21T01:11:03.574Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "EnemySystem.cs",
-              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\EnemySystem.cs",
+              "DocumentMoniker": "C:\\Users\\ryana\\Desktop\\Game Dev_!\\TurnBasedProject\\Assets\\Scripts\\Scripts\\EnemySystem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\EnemySystem.cs",
-              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\EnemySystem.cs",
+              "ToolTip": "C:\\Users\\ryana\\Desktop\\Game Dev_!\\TurnBasedProject\\Assets\\Scripts\\Scripts\\EnemySystem.cs",
               "RelativeToolTip": "Assets\\Scripts\\Scripts\\EnemySystem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALMAAAAJAAAAAAAAAA==",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T02:27:42.329Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-08T02:27:42.329Z"
             }
           ]
         },
@@ -57,13 +107,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "PlayerSystem.cs",
-              "DocumentMoniker": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\PlayerSystem.cs",
+              "DocumentMoniker": "C:\\Users\\ryana\\Desktop\\Game Dev_!\\TurnBasedProject\\Assets\\Scripts\\Scripts\\PlayerSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scripts\\PlayerSystem.cs",
-              "ToolTip": "C:\\Users\\30095350\\Documents\\GitHub\\TurnBasedProject\\Assets\\Scripts\\Scripts\\PlayerSystem.cs",
+              "ToolTip": "C:\\Users\\ryana\\Desktop\\Game Dev_!\\TurnBasedProject\\Assets\\Scripts\\Scripts\\PlayerSystem.cs",
               "RelativeToolTip": "Assets\\Scripts\\Scripts\\PlayerSystem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAEAAAAAAAAAA==",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-01T03:17:09.769Z",
               "EditorCaption": ""

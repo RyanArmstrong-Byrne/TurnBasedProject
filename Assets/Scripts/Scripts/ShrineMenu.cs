@@ -81,17 +81,17 @@ public class ShrineMenu : MonoBehaviour
     // If the text value changes the image fill amount changes as well
     void UpdateSTRUI()
     {
-        STRText.text = currentSTRStat.ToString();
+        STRText.text = ($" STR: {currentSTRStat}");
         STRBAR.fillAmount = Mathf.Clamp01(currentSTRStat / maxSTRStat);
     }
     void UpdateMAGUI()
     {
-        MAGText.text = currentMAGStat.ToString();
+        MAGText.text = ($" MAG: {currentMAGStat}");
         MAGBAR.fillAmount = Mathf.Clamp01(currentMAGStat / maxMAGStat);
     }
     void UpdateDEFUI()
     {
-        DEFText.text = currentDEFStat.ToString();
+        DEFText.text = ($" DEF: {currentDEFStat}");
         DEFBAR.fillAmount = Mathf.Clamp01(currentDEFStat / maxDEFStat);
     }
 
