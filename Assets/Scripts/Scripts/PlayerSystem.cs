@@ -135,7 +135,7 @@ public class PlayerSystem : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.instance.state != GameStates.Battle)
+        if (GameManager.instance.state != GameStates.Battle && GameManager.instance.state != GameStates.Pause)
         {
             ForwardRay();
             LeftRay();
@@ -179,28 +179,24 @@ public class PlayerSystem : MonoBehaviour
                 BattleManager.instance.battleButton.SetActive(false);
 
                 Debug.Log("No enemy detected");
-
-                if (front == null || (front != null && !front.CompareTag("Enemy") && !front.CompareTag("walls") && !front.CompareTag("Door")))
-                {
-                    _hitWallFront = false;
-                    hitDoorFront = false;
-                    if (door != null)
-                    {
-                        door.nearDoor = false;
-                        GameManager.instance.nearADoor = false;
-                    }
-                }
             }
 
+            if (front == null || (front != null && !front.CompareTag("Enemy") && !front.CompareTag("walls") && !front.CompareTag("Door"))) // Potions and key
+            {
+                _hitWallFront = false;
+                hitDoorFront = false;
+                if (door != null)
+                {
+                    door.nearDoor = false;
+                    GameManager.instance.nearADoor = false;
+                }
+            }
         }
 
 
         if (GameManager.instance.state == GameStates.PlayerTurn)
         {
             Debug.Log($"Enemy Dis:{enemyDist}");
-
-
-            // ToBattleState();
 
             if (Input.GetKeyDown(KeyCode.W))
             {

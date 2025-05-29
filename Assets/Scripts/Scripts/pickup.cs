@@ -7,7 +7,10 @@ public class pickup : MonoBehaviour
     public GameObject inGameItem;
     public GameObject itemInInv;
     public GameObject itemImage;
+    public AudioSource pickupSFX;
     public bool potions = false;
+
+    public AudioSource PotionSFX;
 
     private void Start()
     {
@@ -21,10 +24,12 @@ public class pickup : MonoBehaviour
             itemInInv.SetActive(true);
             inGameItem.SetActive(false);
             itemImage.SetActive(true);
+            pickupSFX.Play();
             if (potions)
             {
                 PlayerHandler.instance.potionsREF += 1;
                 Debug.Log("This is a potion...");
+                PotionSFX.Play();
             }
         }
     }

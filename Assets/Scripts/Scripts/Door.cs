@@ -11,8 +11,10 @@ public class Door : MonoBehaviour
     public GameObject DoorOBJ;
     public bool isOpen;
     public bool nearDoor;
+    public AudioSource DoorOpen;
     [SerializeField] Text _interactionText;
     [SerializeField] PlayerSystem _playerObject;
+    
 
 
     private void Start()
@@ -46,12 +48,14 @@ public class Door : MonoBehaviour
                     Debug.Log("Interaction");
                     if (keyINV.activeInHierarchy)
                     {
+                        DoorOpen.Play();
                         nearDoor = false;
                         keyINV_sprite.SetActive(false);
                         _interactionText.enabled = false;
                         isOpen = !isOpen;
                         DoorOBJ.SetActive(false);
                         _playerObject.hitDoorFront = false;
+
                     }
                     else
                     {
@@ -72,7 +76,7 @@ public class Door : MonoBehaviour
 
     private void HideText()
     {
-        Debug.Log("DisableText");
+        
         _interactionText.enabled = false;
     }
 

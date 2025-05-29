@@ -85,8 +85,6 @@ public class EnemySystem : MonoBehaviour
                 if (ForwardRay() || RightRay() || LeftRay())
                 {
                     Debug.Log("Player Detected");
-                    Debug.Log("Need to create the BattleSystem for the Enemy");
-
 
                     if (ForwardRay())
                     {
@@ -119,13 +117,6 @@ public class EnemySystem : MonoBehaviour
                         {
                             BattleManager.instance.EnemyBattleStart();
                         }
-                        // if (playerDist > 5)
-                        //     {
-                        //         if (actionsInTurn > 0)
-                        //         {
-                        //             Forward();
-                        //         }
-                        //     }
                     }
                     else if (RightRay())
                     {
@@ -146,6 +137,25 @@ public class EnemySystem : MonoBehaviour
                         if (actionsInTurn > 0)
                         {
                             Forward();
+                        }
+                    }
+                    else if (right == null && left == null && front ==null)
+                    {
+                        int DirectionChoice = Random.Range(1, 4);
+                        if (DirectionChoice == 1)
+                        {
+                            Debug.Log($"{DirectionChoice}");
+                            TurnLeft();
+                        }
+                        else if (DirectionChoice == 2)
+                        {
+                             Debug.Log($"{DirectionChoice}");
+                            Forward();
+                        }
+                        else
+                        {
+                             Debug.Log($"{DirectionChoice}");
+                            TurnRight();
                         }
                     }
                     else if (right == null || (right != null && !right.CompareTag("Player") && !right.CompareTag("walls")))

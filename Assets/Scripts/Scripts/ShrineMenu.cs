@@ -21,6 +21,9 @@ public class ShrineMenu : MonoBehaviour
     [SerializeField] bool exit = false;
     [SerializeField] bool inside = false;
 
+    public AudioSource ShrineSFX;
+    public AudioSource StatUpSFX;
+
     private void Start()
     {
         menu.SetActive(false);
@@ -32,6 +35,7 @@ public class ShrineMenu : MonoBehaviour
         inside = true;
         StatsUpdateCurrent();
         menu.SetActive(true);
+        
         Debug.Log("Menu true");
     }
 
@@ -71,6 +75,7 @@ public class ShrineMenu : MonoBehaviour
     public void ExitMenu()
     {
         StatsUpdateREF();   
+        ShrineSFX.Play();
         inside = false;
         exit = true;
         menu.SetActive(false);
@@ -97,34 +102,37 @@ public class ShrineMenu : MonoBehaviour
 
     public void AddToSTRStats()
     {
-        if(SkillPoints > 0)
+        if (SkillPoints > 0)
         {
             currentSTRStat += _upgradeValue;
             skillpointToText(1);
             UpdateSTRUI();
             Debug.Log("STR+!");
+            StatUpSFX.Play();
         }
       
     }
     public void AddToMAGStats()
     {
-        if(SkillPoints > 0)
+        if (SkillPoints > 0)
         {
             currentMAGStat += _upgradeValue;
             skillpointToText(1);
             UpdateMAGUI();
             Debug.Log("MAG+!");
+            StatUpSFX.Play();
         }
       
     }
     public void AddToDEFStats()
     {
-        if(SkillPoints > 0)
+        if (SkillPoints > 0)
         {
-            currentDEFStat+= _upgradeValue;
+            currentDEFStat += _upgradeValue;
             skillpointToText(1);
             UpdateDEFUI();
             Debug.Log("DEF+!");
+            StatUpSFX.Play();
         }
     }
     void skillpointToText(int value)

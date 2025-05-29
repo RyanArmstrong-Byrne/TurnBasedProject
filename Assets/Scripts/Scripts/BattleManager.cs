@@ -53,6 +53,17 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private bool _startFromEnemy = false;
     [SerializeField] private bool _isBlocked = false;
     [SerializeField] private int _healAmount = 15;
+
+    [SerializeField] private AudioSource BattleTheme;
+    [SerializeField] private AudioSource PlayerAttack;
+    [SerializeField] private AudioSource PlayerBlock;
+    [SerializeField] private AudioSource PlayerHeal;
+    [SerializeField] private AudioSource EnemyAttackSFX;
+    [SerializeField] private AudioSource EnemyRoar;
+    [SerializeField] private AudioSource PlayerVoice;
+    public AudioSource VictorySFX;
+    public AudioSource defeatSFX;
+    
     private void Awake()
     {
         if (instance == null)
@@ -72,6 +83,7 @@ public class BattleManager : MonoBehaviour
         battleCamera.SetActive(false);
         _movementHUD.SetActive(true);
         _battleHUD.SetActive(false);
+        battleButton.SetActive(false);
 
         // Define Player bools
         _isBlocked = false;
@@ -90,6 +102,7 @@ public class BattleManager : MonoBehaviour
         battleButton.SetActive(false);
         _battleHUD.SetActive(true);
         _movementHUD.SetActive(false);
+        BattleTheme.Play();
     }
     // Start Battle Button
     public void PlayerBattleStart()
@@ -104,6 +117,7 @@ public class BattleManager : MonoBehaviour
         battleButton.SetActive(false);
         _battleHUD.SetActive(true);
         _movementHUD.SetActive(false);
+        BattleTheme.Play();
     }
 
     private void UpdateElements()
@@ -140,7 +154,7 @@ public class BattleManager : MonoBehaviour
     #region Enemy Turn System
     IEnumerator EnemyTurn()
     {
-        
+
         if (!_startFromEnemy)
         {
             yield return new WaitForSeconds(2f);
@@ -154,10 +168,12 @@ public class BattleManager : MonoBehaviour
             playerTurn = false;
             Debug.Log("Is now on enemy turn function");
             yield return new WaitForSeconds(1f);
+            EnemyRoar.Play();
         }
         _battleText.text = $"Enemy is making a choice...";
         Debug.Log("Enemy will do actions here... Wait time will be defined beforehand");
         AttackPlayer();
+        
         yield return new WaitForSeconds(2f);
         Debug.Log("Enemy Turn is now over");
         if (_playerHandler.healthREF <= 0)
@@ -221,9 +237,11 @@ public class BattleManager : MonoBehaviour
         {
             _hasPressedAction = true;
             string _attackText = "Player Attacks Enemy...";
+            PlayerVoice.Play();
             Debug.Log(_attackText);
             _battleText.text = _attackText;
             AttackEnemy();
+            PlayerAttack.Play();
             StartCoroutine(EnemyTurn());
         }
         else
@@ -304,6 +322,7 @@ public class BattleManager : MonoBehaviour
             Debug.Log($"Melee attack...{_playerHandler.strengthREF}");
             playerattack = _playerHandler.strengthREF;
             Debug.Log($"player Attack: {playerattack}");
+            
         }
 
         // Player attack value (minus) Enemy defence value
@@ -340,6 +359,7 @@ public class BattleManager : MonoBehaviour
             Debug.Log($"Range attack... {_enemyHandler.magicREF}");
             enemyattack = _enemyHandler.magicREF;
             Debug.Log($"player Attack: {enemyattack}");
+            EnemyAttackSFX.Play();
         }
         else
         {
@@ -347,6 +367,7 @@ public class BattleManager : MonoBehaviour
             Debug.Log($"Melee attack...{_enemyHandler.strengthREF}");
             enemyattack = _enemyHandler.strengthREF;
             Debug.Log($"enemy Attack: {enemyattack}");
+            EnemyAttackSFX.Play();
         }
 
         if (_isBlocked)
@@ -365,6 +386,7 @@ public class BattleManager : MonoBehaviour
             _playerHandler.healthREF = _playerHandler.healthREF - enemyattack;
             string _attackText = $"Enemy did {enemyattack} damage against player";
             _battleText.text = _attackText;
+            PlayerBlock.Play();
             UpdateElements();
         }
         else // Player didn't block 
@@ -404,10 +426,12 @@ public class BattleManager : MonoBehaviour
         gameOverMenu.SetActive(true);
         if (isPlayerDead)
         {
+            defeatSFX.Play();
             gameOverText.text = "GAME OVER... YOU LOSE";
         }
         else
         {
+            VictorySFX.Play();
             gameOverText.text = "GAME OVER... YOU WIN";
         }
     }
