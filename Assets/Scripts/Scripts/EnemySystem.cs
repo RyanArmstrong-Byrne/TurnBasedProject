@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class EnemySystem : MonoBehaviour
 {
@@ -90,6 +91,7 @@ public class EnemySystem : MonoBehaviour
                     {
                         if (actionsInTurn >= 2)
                         {
+                            Debug.Log($"player distance = {playerDist}");
                             if (playerDist > 5)
                             {
                                 // 50/50 change of range or melee
@@ -131,31 +133,108 @@ public class EnemySystem : MonoBehaviour
                 {
                     Debug.Log("No player detected");
 
-                    if (front == null || (front != null && !front.CompareTag("Player") && !front.CompareTag("walls")))
+                    if (right == null && left == null && front == null)
+                    {
+                        Debug.Log("free Movement");
+                        int DirectionChoice = Random.Range(1, 4);
+                        if (DirectionChoice == 1)
+                        {
+                            Debug.Log($"{DirectionChoice}");
+                            if (actionsInTurn > 0)
+                            {
+                                TurnLeft();
+                            
+                            }
+                        }
+                        else if (DirectionChoice == 2)
+                        {
+                            Debug.Log($"{DirectionChoice}");
+                            Forward();
+                        }
+                        else
+                        {
+                            Debug.Log($"{DirectionChoice}");
+                            if (actionsInTurn > 0)
+                            {
+                                TurnRight();
+                                
+                            }
+                        }
+                    }
+                    else if(right == null && left == null)
+                    {
+                        Debug.Log("free Movement");
+                        int DirectionChoice = Random.Range(1, 4);
+                        if (DirectionChoice == 1)
+                        {
+                            Debug.Log($"{DirectionChoice}");
+                            if (actionsInTurn > 0)
+                            {
+                                TurnLeft();
+                                
+                            }
+                        }
+                        else
+                        {
+                            Debug.Log($"{DirectionChoice}");
+                            if (actionsInTurn > 0)
+                            {
+                                TurnRight();
+                                
+                            }
+                        }
+                    }
+                    else if (right == null && front == null)
+                    {
+                        Debug.Log("free Movement");
+                        int DirectionChoice = Random.Range(1, 4);
+                        if (DirectionChoice == 1)
+                        {
+                            Debug.Log($"{DirectionChoice}");
+                            if (actionsInTurn > 0)
+                            {
+                                TurnRight();
+                                
+                            }
+                        }
+                        else
+                        {
+                            Debug.Log($"{DirectionChoice}");
+                            if (actionsInTurn > 0)
+                            {
+                                Forward();
+                            }
+                        }
+                    }
+                    else if (left == null && front == null)
+                    {
+                        Debug.Log("free Movement");
+                        int DirectionChoice = Random.Range(1, 4);
+                        if (DirectionChoice == 1)
+                        {
+                            Debug.Log($"{DirectionChoice}");
+                            if (actionsInTurn > 0)
+                            {
+                                TurnLeft();
+                                
+                            }
+                        }
+                        else
+                        {
+                            Debug.Log($"{DirectionChoice}");
+                            if (actionsInTurn > 0)
+                            {
+                                Forward();
+                            }
+                        }
+
+                    }
+                    else if (front == null || (front != null && !front.CompareTag("Player") && !front.CompareTag("walls")))
                     {
                         Debug.Log("Can move forward");
                         if (actionsInTurn > 0)
                         {
                             Forward();
-                        }
-                    }
-                    else if (right == null && left == null && front ==null)
-                    {
-                        int DirectionChoice = Random.Range(1, 4);
-                        if (DirectionChoice == 1)
-                        {
-                            Debug.Log($"{DirectionChoice}");
-                            TurnLeft();
-                        }
-                        else if (DirectionChoice == 2)
-                        {
-                             Debug.Log($"{DirectionChoice}");
-                            Forward();
-                        }
-                        else
-                        {
-                             Debug.Log($"{DirectionChoice}");
-                            TurnRight();
                         }
                     }
                     else if (right == null || (right != null && !right.CompareTag("Player") && !right.CompareTag("walls")))
@@ -172,6 +251,7 @@ public class EnemySystem : MonoBehaviour
                             TurnLeft();
                         }
                     }
+                    
                 }
                 canAction = false;
                 return;

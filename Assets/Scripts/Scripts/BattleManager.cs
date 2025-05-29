@@ -170,7 +170,9 @@ public class BattleManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             EnemyRoar.Play();
         }
-        _battleText.text = $"Enemy is making a choice...";
+        EnemyRoar.Play();
+        _battleText.text = $"Enemy preparing to attack...";
+        yield return new WaitForSeconds(1f);
         Debug.Log("Enemy will do actions here... Wait time will be defined beforehand");
         AttackPlayer();
         
@@ -296,12 +298,14 @@ public class BattleManager : MonoBehaviour
     {
         // Increase health by X amount
         _playerHandler.healthREF += healingAmount;
+        PlayerHeal.Play();
         if (_playerHandler.healthREF > _playerHandler.maxhealthREF)
         {
             _playerHandler.healthREF = _playerHandler.maxhealthREF;
         }
         // Decrease the potion count by one
         _playerHandler.potionsREF -= 1;
+       
         UpdateElements();
     }
 
@@ -423,6 +427,8 @@ public class BattleManager : MonoBehaviour
 
     private void GameOverMenu()
     {
+        StartCoroutine(PlayerTurn(0f));
+        BattleTheme.Stop();
         gameOverMenu.SetActive(true);
         if (isPlayerDead)
         {
